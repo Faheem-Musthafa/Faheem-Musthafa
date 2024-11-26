@@ -12,7 +12,7 @@ Welcome to my GitHub profile! 🚀 Here’s a little about me:
 - **Hack The Box**, **TryHackMe**, **OverTheWire**, and **PicoCTF**.  
 - Learning from **FreeCodeCamp**, **WebSEC Academy**, and more.  
 
-🎓 Pursuing certifications such as **eJPT**, **OSCP**, and **CRTP** to hone my skills.  
+🎓 Pursuing certifications such as **CPTS**, **OSCP**, and **CRTP** to hone my skills.  
 
 ---
 
@@ -30,15 +30,15 @@ Welcome to my GitHub profile! 🚀 Here’s a little about me:
 ---
 
 ## 🎯 Goals  
-- 🏆 Complete **eJPT** and move towards **OSCP** certification.  
+- 🏆 Complete **CPT** and move towards **CPTS** certification.  
 - 🛡️ Build a robust foundation in exploit development & red teaming.  
 - 🚀 Collaborate on **open-source** security tools.  
 
 ---
 
 ## 📈 GitHub Stats  
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=your-username&layout=compact&theme=radical)  
+![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=Faheem-Musthafa&show_icons=true&theme=radical)  
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Faheem-Musthafa&layout=compact&theme=radical)  
 
 ---
 
