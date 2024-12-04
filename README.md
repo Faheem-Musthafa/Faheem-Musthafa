@@ -12,7 +12,7 @@ Welcome to my GitHub profile! 🚀 Here’s a little about me:
 - **Hack The Box**, **TryHackMe**, **OverTheWire**, and **PicoCTF**.  
 - Learning from **FreeCodeCamp**, **WebSEC Academy**, and more.  
 
-🎓 Pursuing certifications such as **CPTS**, **OSCP**, and **CRTP** to hone my skills.  
+🎓 Pursuing certifications such as **eJPT**, **CPTS**, and **CRTP** to hone my skills.  
 
 ---
 
