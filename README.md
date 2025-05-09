@@ -44,7 +44,7 @@ Welcome to my GitHub profile! 🚀 Here’s a little about me:
 
 ### 🔗 Let's Connect  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/faheem-musthafa-c-p-17794a281/) 
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/your-profile)  
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/Faheem_cp)
 
 ---
 
@@ -53,4 +53,5 @@ Faheem-Musthafa/Faheem-Musthafa is a ✨ special ✨ repository because its `REA
 You can click the Preview link to take a look at your changes.
 --->
 
-create new one
+
+
