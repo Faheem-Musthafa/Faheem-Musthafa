@@ -1,53 +1,65 @@
-# 👋 Hi there! I'm Faheem Musthafa  
+# 👋 Hey there! I'm Faheem Musthafa  
 
-Welcome to my GitHub profile! 🚀 Here's a little about me:  
-
-## 🛠️ About Me  
-
-🎯 **Aspiring Cybersecurity Professional** with a passion for:  
-- 🔐 Ethical hacking, penetration testing, and secure coding  
-- 🖧 Network security & vulnerability assessment  
-- 💻 Building security tools and automation with **Python** & **Bash**  
-- 🔍 Digital forensics and incident response  
-
-📚 Currently sharpening my skills on:  
-- **Hack The Box** | **TryHackMe** | **OverTheWire** | **PicoCTF**  
-- **WebSec Academy** | **PentesterLab** 
-
-🎓 Pursuing certifications:  
-- **CRTA** (In Progress) → **CPTS** → **OSCP** (Long-term Goal)  
+Welcome to my GitHub profile! 🚀  
+I'm a **Web Developer** and **Pentester** passionate about building secure systems and breaking insecure ones — ethically, of course.  
 
 ---
 
-## 🚀 Technical Skills  
+## 🧩 About Me  
 
-### 💻 Languages & Tools  
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+💻 **Web Developer | Penetration Tester | Cybersecurity Enthusiast**  
+
+I love exploring the intersection of **development and security**, crafting modern web apps while ensuring they’re hardened against threats.  
+
+### 🔐 What I Do  
+- 🧠 Develop full-stack web applications with modern frameworks  
+- 🚀 Perform **web app pentesting**, identifying and mitigating vulnerabilities  
+- 🧰 Automate recon and scanning tools using **Python** & **Bash**  
+- 🔍 Learn & practice on **HackTheBox**, **TryHackMe**, and **Bug Bounty labs**
+
+🎓 Currently sharpening my skills on:  
+- **Next.js**, **TypeScript**, **Node.js**, **MongoDB**  
+- **Burp Suite**, **Metasploit**, **Wireshark**, **Nmap**, **Gobuster**  
+- **Hack The Box**, **TryHackMe**, **PortSwigger WebSec Academy**  
+
+📜 Pursuing Certifications:  
+- **CRTA** (In Progress) → **CPTS** → **OSCP** (Goal for 2026)
+
+---
+
+## ⚙️ Tech Stack  
+
+### 💻 Development  
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
-### 🔒 Security Tools  
-![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+### 🔒 Security & Pentesting  
+![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6C37?style=for-the-badge&logo=burpsuite&logoColor=white)
 ![Metasploit](https://img.shields.io/badge/Metasploit-000000?style=for-the-badge)
-![Burp Suite](https://img.shields.io/badge/Burp_Suite-000000?style=for-the-badge)
-
-### 🎯 Hacking Platforms  
-![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black)
-![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)
-
----
-
-## 🔥 Current Projects  
-- Developing Python tools for network scanning and vulnerability assessment  
-- Creating educational content about cybersecurity fundamentals  
-- Building a personal knowledge base of security concepts and techniques  
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+![Nmap](https://img.shields.io/badge/Nmap-0078D7?style=for-the-badge&logo=nmap&logoColor=white)
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![OWASP](https://img.shields.io/badge/OWASP-000000?style=for-the-badge&logo=owasp&logoColor=white)
 
 ---
 
-## 📈 GitHub Stats  
+## 🚀 Featured Projects  
+
+- 🔧 **Web Vulnerability Scanner** – Automated Python tool for detecting OWASP Top 10 flaws  
+- 🌐 **Secure Portfolio Website** – Built with Next.js & Tailwind, following best security practices  
+- 🧠 **Uniminder** – Mentorship & career guidance platform connecting students and alumni securely  
+- 🧩 **Recon Automation Suite** – Bash + Python toolkit for quick target reconnaissance  
+
+---
+
+## 📊 GitHub Stats  
+
 <div align="center">
-  
+
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Faheem-Musthafa&show_icons=true&theme=radical&hide_border=true)  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Faheem-Musthafa&layout=compact&theme=radical&hide_border=true)  
 ![Streak Stats](https://github-readme-streak-stats.herokuapp.com/?user=Faheem-Musthafa&theme=radical&hide_border=true)
@@ -57,19 +69,24 @@ Welcome to my GitHub profile! 🚀 Here's a little about me:
 ---
 
 ## 🎯 Goals for 2025  
-- [ ] Obtain CRTA certification  
-- [ ] Publish 3 open-source security tools  
-- [ ] Reach Top 1% on TryHackMe  
-- [ ] Contribute to security-related open-source projects  
+
+- [ ] Build 5+ full-stack web apps with strong security principles  
+- [ ] Obtain **CRTA** certification  
+- [ ] Publish open-source security automation tools  
+- [ ] Reach **Top 1%** on **TryHackMe**  
+- [ ] Start contributing to **OWASP** and security communities  
 
 ---
 
-## 📫 Let's Connect  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/faheem-musthafa-c-p-17794a281/)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/YourHandle)
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/YourProfile)
+## 🌐 Connect With Me  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/faheem-musthafa-c-p-17794a281/)  
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://your-portfolio-link.com)  
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/YourProfile)  
 [![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black)](https://app.hackthebox.com/profile/YourID)
 
 ---
 
-⚡ **Fun Fact:** I believe cybersecurity is like a never-ending puzzle - the more you learn, the more fascinating it becomes!
+⚡ **Fun Fact:**  
+Web development teaches me how to build — pentesting teaches me how to break.  
+Together, they make me unstoppable. 🚀
