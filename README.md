@@ -1,163 +1,80 @@
 <div align="center">
 
-```text
-╔══════════════════════════════════════════════════════════════════════╗
-║                                                                      ║
-║   ····························································   ║
-║   ·  ███████╗ █████╗ ██╗  ██╗███████╗███████╗███╗   ███╗       ·   ║
-║   ·  ██╔════╝██╔══██╗██║  ██║██╔════╝██╔════╝████╗ ████║       ·   ║
-║   ·  █████╗  ███████║███████║█████╗  █████╗  ██╔████╔██║       ·   ║
-║   ·  ██╔══╝  ██╔══██║██╔══██║██╔══╝  ██╔══╝  ██║╚██╔╝██║       ·   ║
-║   ·  ██║     ██║  ██║██║  ██║███████╗███████╗██║ ╚═╝ ██║       ·   ║
-║   ·  ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝       ·   ║
-║   ····························································   ║
-║                                                                      ║
-╚══════════════════════════════════════════════════════════════════════╝
-```
+# Hi, I'm Faheem Musthafa 👋
 
-### `FULL-STACK DEVELOPER // AI BUILDER // AUTOMATION ENTHUSIAST`
+### Full-Stack Developer · AI Builder · Automation Enthusiast
 
-```text
-SYSTEM STATUS: ONLINE
-LOCATION: KERALA, INDIA
-MODE: BUILDING THINGS THAT SHOULD PROBABLY HAVE A README
-```
+I build practical web applications, AI-powered tools, internal systems, and cloud-ready products.
 
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-111111?style=for-the-badge&logo=linkedin&logoColor=58a6ff)](https://linkedin.com/in/faheem-musthafa-cp)
-[![Instagram](https://img.shields.io/badge/INSTAGRAM-111111?style=for-the-badge&logo=instagram&logoColor=ff6b9d)](https://instagram.com/faheem_cp)
-[![Email](https://img.shields.io/badge/EMAIL-111111?style=for-the-badge&logo=gmail&logoColor=ff7b72)](mailto:faheemcp241@gmail.com)
-![Views](https://komarev.com/ghpvc/?username=Faheem-Musthafa&style=for-the-badge&color=30363d&label=VISITORS)
+<p>
+  <a href="https://linkedin.com/in/faheem-musthafa-cp">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:faheemcp241@gmail.com">
+    <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://instagram.com/faheem_cp">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" />
+  </a>
+</p>
 
 </div>
 
 ---
 
-# `CONTROL_ROOM / 01`
-
-<table>
-<tr>
-<td width="58%" valign="top">
-
-## `operator.profile`
+## About Me
 
 ```ts
-const operator = {
-  name: "Faheem Musthafa",
-  role: "Full-Stack Developer & AI Builder",
+const faheem = {
   location: "Kerala, India",
-
-  likes: [
-    "Useful software",
-    "Clean system design",
+  role: "Full-Stack Developer & AI Builder",
+  focus: [
+    "AI Products",
+    "Backend Engineering",
+    "ERP Systems",
     "Automation",
-    "Good dashboards",
-    "Things running on my own server"
+    "Self-Hosted Infrastructure"
   ],
-
-  currentlyLearning: [
-    "GCP",
-    "Terraform",
-    "DevSecOps",
-    "System Design"
-  ],
-
-  dangerLevel: "Will redesign your dashboard at 2 AM"
+  learning: ["GCP", "Terraform", "DevSecOps", "System Design"]
 };
 ```
 
-</td>
-<td width="42%" valign="top">
-
-## `live.telemetry`
-
-```text
-CPU      ████████░░  82%
-FOCUS    █████████░  94%
-COFFEE   ██████░░░░  63%
-BUGS     ███░░░░░░░  28%
-IDEAS    ██████████  100%
-SLEEP    ██░░░░░░░░  classified
-```
-
-```text
-> status --today
-
-building...
-debugging...
-learning...
-shipping...
-```
-
-</td>
-</tr>
-</table>
+I enjoy turning real business problems into reliable software. My work spans frontend development, backend APIs, database design, deployment, automation, and product architecture.
 
 ---
 
-# `MISSION_BOARD / 02`
+## Current Build
 
-<div align="center">
+### [RateCheck](https://rate-check.vercel.app)
 
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│ ACTIVE MISSION                                                       │
-├──────────────────────────────────────────────────────────────────────┤
-│ RATECHECK                                                            │
-│ AI-powered freelance pricing intelligence                           │
-│                                                                      │
-│ Input  : client project brief                                        │
-│ Output : scope, complexity, estimate, structured pricing report      │
-└──────────────────────────────────────────────────────────────────────┘
-```
+AI-powered freelance pricing intelligence that converts project briefs into structured cost and scope reports.
 
-[![Open App](https://img.shields.io/badge/LAUNCH_RATECHECK-0d1117?style=for-the-badge&logo=vercel&logoColor=58a6ff)](https://rate-check.vercel.app)
-
-`Next.js` · `Supabase` · `OpenRouter` · `Redis` · `Resend` · `Vercel`
-
-</div>
+**Tech:** Next.js · Supabase · OpenRouter · Redis · Resend · Vercel
 
 ---
 
-# `PROJECT_ARCADE / 03`
+## Featured Projects
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-## `01 // Kerala AI Checker`
+### [Kerala AI Checker](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
-[![Demo](https://img.shields.io/badge/LIVE_DEMO-111111?style=flat-square&logo=googlecloud&logoColor=58a6ff)](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
+A Malayalam and Manglish scam-message analyser designed to help elderly and non-technical users identify suspicious WhatsApp and SMS messages.
 
-```text
-MISSION:
-Detect suspicious Malayalam and Manglish
-WhatsApp/SMS scam messages.
+**Tech:** Next.js · Gemini · Tailwind CSS · Google Cloud Run
 
-SPECIAL ABILITY:
-Explains scams in simple language for
-elderly and non-technical users.
-```
-
-`Next.js` `Gemini` `Cloud Run` `Tailwind`
+[Live Demo](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
 
 </td>
 <td width="50%" valign="top">
 
-## `02 // RouteReport Live`
+### [RouteReport Live](https://github.com/Faheem-Musthafa/Route-Report-system)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/Route-Report-system)
+A community-driven road-condition reporting platform with live reports, maps, location detection, filters, and analytics.
 
-```text
-MISSION:
-Community-powered road issue reporting.
-
-FEATURES:
-GPS · live reports · maps · severity
-filters · analytics · realtime updates
-```
-
-`React` `TypeScript` `Supabase` `Leaflet`
+**Tech:** React · TypeScript · Supabase · Leaflet · PostgreSQL
 
 </td>
 </tr>
@@ -165,38 +82,20 @@ filters · analytics · realtime updates
 <tr>
 <td width="50%" valign="top">
 
-## `03 // DadArch`
+### [DadArch](https://github.com/Faheem-Musthafa/DadArch)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/DadArch)
+A modern architecture portfolio focused on project presentation, responsive design, and a premium visual experience.
 
-```text
-MISSION:
-A premium architecture portfolio.
-
-FOCUS:
-Visual storytelling · project presentation
-responsive layouts · deployment workflows
-```
-
-`Frontend` `Portfolio UX` `Vercel` `DNS`
+**Tech:** Frontend Development · Responsive UI · Vercel · DNS
 
 </td>
 <td width="50%" valign="top">
 
-## `04 // IEDC MCAS Website`
+### [IEDC MCAS Website](https://github.com/Faheem-Musthafa/IEDC-MCAS-website)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/IEDC-MCAS-website)
+A college innovation-community website for showcasing programmes, events, activities, and student initiatives.
 
-```text
-MISSION:
-Digital home for college innovation,
-programmes, events, and student activity.
-
-MODE:
-Community-first web experience
-```
-
-`Web Development` `Responsive UI` `Events`
+**Tech:** Web Development · Responsive Design · Event Content
 
 </td>
 </tr>
@@ -204,38 +103,20 @@ Community-first web experience
 <tr>
 <td width="50%" valign="top">
 
-## `05 // LMS Backend`
+### [LMS Backend](https://github.com/Faheem-Musthafa/lms-backend)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/lms-backend)
+Backend foundation for learning-management workflows, authentication, data modelling, and educational services.
 
-```text
-MISSION:
-Backend foundations for learning systems.
-
-MODULES:
-Auth · content · data models · APIs
-education workflows
-```
-
-`Backend` `API Design` `Education`
+**Tech:** Backend APIs · Authentication · Education Systems
 
 </td>
 <td width="50%" valign="top">
 
-## `06 // Self-Hosted Guide`
+### [Self-Hosted Guide](https://github.com/Faheem-Musthafa/self-hosted-guide)
 
-[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/self-hosted-guide)
+Practical notes and guides for running tools, services, and infrastructure on personal hardware.
 
-```text
-MISSION:
-Run useful software on your own hardware.
-
-TOOLS:
-Linux · Nginx · Docker · Cloudflare
-private services · automation
-```
-
-`Linux` `Docker` `Nginx` `Self-Hosting`
+**Tech:** Linux · Docker · Nginx · Cloudflare · Self-Hosting
 
 </td>
 </tr>
@@ -243,262 +124,92 @@ private services · automation
 
 ---
 
-# `SIDE_QUESTS / 04`
+## Tech Stack
 
-```text
-[✓] Electra Shield        cybersecurity experiments
-[✓] Moon Phase Tracker    astronomy + interface design
-[✓] Smart Note            lightweight note system
-[✓] Project AutoHub       project organization experiments
-[✓] OpenTask              task management concepts
-[✓] PassGuardian          password/security tooling
-[✓] UniMinder             student productivity project
-[✓] SIH_WEB_25            hackathon build
-[✓] Slaq AI               AI product experiments
-```
+### Languages
 
-<div align="center">
+<p>
+  <img src="https://skillicons.dev/icons?i=python,ts,js,bash,cpp&theme=dark" />
+</p>
 
-[![Explore All](https://img.shields.io/badge/EXPLORE_ALL_REPOSITORIES-111111?style=for-the-badge&logo=github&logoColor=ffffff)](https://github.com/Faheem-Musthafa?tab=repositories)
+### Frontend
 
-</div>
+<p>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,flutter&theme=dark" />
+</p>
 
----
+### Backend & Data
 
-# `TECH_TREE / 05`
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,fastapi,django,express,postgres,redis,supabase,firebase&theme=dark" />
+</p>
 
-```mermaid
-flowchart TD
-    A[Faheem.exe] --> B[Frontend]
-    A --> C[Backend]
-    A --> D[AI]
-    A --> E[Infra]
-    A --> F[Security]
+### Cloud & DevOps
 
-    B --> B1[React]
-    B --> B2[Next.js]
-    B --> B3[Flutter]
-    B --> B4[Tailwind]
-
-    C --> C1[Node.js]
-    C --> C2[FastAPI]
-    C --> C3[Django]
-    C --> C4[tRPC]
-
-    D --> D1[Gemini]
-    D --> D2[OpenRouter]
-    D --> D3[Claude]
-    D --> D4[Ollama]
-
-    E --> E1[Docker]
-    E --> E2[Nginx]
-    E --> E3[GCP]
-    E --> E4[Terraform]
-
-    F --> F1[DevSecOps]
-    F --> F2[Linux]
-    F --> F3[Cloudflare]
-```
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,ts,js,bash,cpp,react,nextjs,vite,tailwind,flutter,nodejs,fastapi,django,express,postgres,redis,supabase,firebase,gcp,cloudflare,docker,terraform,nginx,linux,git,github&theme=dark" />
-
-</div>
+<p>
+  <img src="https://skillicons.dev/icons?i=gcp,vercel,cloudflare,docker,terraform,nginx,linux,git,github&theme=dark" />
+</p>
 
 ---
 
-# `SYSTEM_MAP / 06`
+## What I'm Exploring
 
-```text
-┌──────────────┐
-│ REAL PROBLEM │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ USER FLOWS   │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ DATA MODEL   │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ BACKEND/API  │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ INTERFACE    │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ DEPLOYMENT   │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ FEEDBACK LOOP│
-└──────────────┘
-```
-
-```text
-Developer rule #01:
-Never automate a broken workflow before understanding why it is broken.
-
-Developer rule #02:
-A dashboard with 14 cards is usually asking for therapy.
-
-Developer rule #03:
-If it works on localhost, congratulations. The tutorial has begun.
-```
+- Agentic AI workflows
+- GCP deployment and infrastructure
+- Terraform
+- DevSecOps
+- Multi-tenant SaaS architecture
+- ERP and internal business systems
+- Self-hosted tools and automation
 
 ---
 
-# `GITHUB_RADAR / 07`
+## GitHub Activity
 
 <div align="center">
 
-<a href="https://github.com/Faheem-Musthafa">
-  <img
-    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Faheem-Musthafa&theme=github_dark"
-    width="100%"
-    alt="Faheem's GitHub profile summary"
-  />
-</a>
+<img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Faheem-Musthafa&theme=github_dark"
+  width="100%"
+  alt="Faheem's GitHub profile summary"
+/>
 
 <br/><br/>
 
 <img
   src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Faheem-Musthafa&theme=github_dark"
-  height="170"
+  height="165"
   alt="Repositories per language"
 />
 
 <img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Faheem-Musthafa&theme=github_dark"
-  height="170"
-  alt="Most used commit language"
-/>
-
-<br/><br/>
-
-<img
   src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Faheem-Musthafa&theme=github_dark"
-  height="170"
+  height="165"
   alt="GitHub statistics"
-/>
-
-<img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Faheem-Musthafa&theme=github_dark&utcOffset=5.5"
-  height="170"
-  alt="Productive coding time"
-/>
-
-<br/><br/>
-
-<img
-  src="https://github-readme-activity-graph.vercel.app/graph?username=Faheem-Musthafa&bg_color=0d1117&color=8b949e&line=58a6ff&point=ff7b72&area=true&hide_border=true"
-  width="100%"
-  alt="Faheem's contribution graph"
 />
 
 </div>
 
 ---
 
-# `ACHIEVEMENTS_UNLOCKED / 08`
+## Let's Connect
 
-```text
-[ UNLOCKED ] Built real-world ERP workflows
-[ UNLOCKED ] Deployed apps on Google Cloud
-[ UNLOCKED ] Designed multi-role systems
-[ UNLOCKED ] Built with Supabase RLS
-[ UNLOCKED ] Survived DNS propagation
-[ UNLOCKED ] Used Arch Linux voluntarily
-[ LOCKED   ] Finish every side project
-[ LOCKED   ] Close all browser tabs
-```
+I'm open to:
 
----
-
-# `CURRENT_QUESTS / 09`
-
-<table>
-<tr>
-<td width="33%" valign="top">
-
-### `AI`
-
-```text
-tool-using agents
-multi-step workflows
-local models
-AI product UX
-```
-
-</td>
-<td width="33%" valign="top">
-
-### `CLOUD`
-
-```text
-GCP
-Terraform
-deployment
-observability
-```
-
-</td>
-<td width="33%" valign="top">
-
-### `SYSTEMS`
-
-```text
-DevSecOps
-multi-tenancy
-ERP architecture
-self-hosting
-```
-
-</td>
-</tr>
-</table>
-
----
-
-# `TRANSMISSION / 10`
+- Full-stack application development
+- AI-powered tools
+- SaaS MVPs
+- ERP and internal systems
+- Backend and cloud infrastructure
+- Automation projects
 
 <div align="center">
 
-```text
-╭────────────────────────────────────────────────────────────────────╮
-│ AVAILABLE FOR                                                      │
-├────────────────────────────────────────────────────────────────────┤
-│ Full-stack products                                                │
-│ AI-powered tools                                                   │
-│ SaaS MVPs                                                          │
-│ ERP and internal systems                                           │
-│ Automation workflows                                               │
-│ Backend and cloud infrastructure                                   │
-╰────────────────────────────────────────────────────────────────────╯
-```
-
-[![Email](https://img.shields.io/badge/START_A_CONVERSATION-111111?style=for-the-badge&logo=gmail&logoColor=ff7b72)](mailto:faheemcp241@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/CONNECT_ON_LINKEDIN-111111?style=for-the-badge&logo=linkedin&logoColor=58a6ff)](https://linkedin.com/in/faheem-musthafa-cp)
+[![Email Me](https://img.shields.io/badge/Email_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:faheemcp241@gmail.com)
+[![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/faheem-musthafa-cp)
 
 <br/><br/>
 
-```text
-······························································
-··  BUILD USEFUL THINGS · BREAK A FEW · FIX THEM · SHIP AGAIN    ··
-······························································
-```
-
-<sub>Powered by curiosity, Linux, caffeine, and suspiciously many terminal windows.</sub>
+**Build useful things. Learn fast. Ship consistently.**
 
 </div>
