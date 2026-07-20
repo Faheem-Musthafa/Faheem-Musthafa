@@ -1,156 +1,504 @@
 <div align="center">
 
+```text
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   ····························································   ║
+║   ·  ███████╗ █████╗ ██╗  ██╗███████╗███████╗███╗   ███╗       ·   ║
+║   ·  ██╔════╝██╔══██╗██║  ██║██╔════╝██╔════╝████╗ ████║       ·   ║
+║   ·  █████╗  ███████║███████║█████╗  █████╗  ██╔████╔██║       ·   ║
+║   ·  ██╔══╝  ██╔══██║██╔══██║██╔══╝  ██╔══╝  ██║╚██╔╝██║       ·   ║
+║   ·  ██║     ██║  ██║██║  ██║███████╗███████╗██║ ╚═╝ ██║       ·   ║
+║   ·  ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝       ·   ║
+║   ····························································   ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
-███████╗ █████╗ ██╗  ██╗███████╗███████╗███╗   ███╗
-██╔════╝██╔══██╗██║  ██║██╔════╝██╔════╝████╗ ████║
-█████╗  ███████║███████║█████╗  █████╗  ██╔████╔██║
-██╔══╝  ██╔══██║██╔══██║██╔══╝  ██╔══╝  ██║╚██╔╝██║
-██║     ██║  ██║██║  ██║███████╗███████╗██║ ╚═╝ ██║
-╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚═╝
+
+### `FULL-STACK DEVELOPER // AI BUILDER // AUTOMATION ENTHUSIAST`
+
+```text
+SYSTEM STATUS: ONLINE
+LOCATION: KERALA, INDIA
+MODE: BUILDING THINGS THAT SHOULD PROBABLY HAVE A README
 ```
 
-### `> I build things that think.`
-
-**Agentic AI · Full-Stack · Automation · Self-Hosted**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/faheem-musthafa-cp)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/faheem_cp)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:faheemcp241@gmail.com)
-![Profile Views](https://komarev.com/ghpvc/?username=Faheem-Musthafa&style=flat-square&color=0e75b6)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-111111?style=for-the-badge&logo=linkedin&logoColor=58a6ff)](https://linkedin.com/in/faheem-musthafa-cp)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-111111?style=for-the-badge&logo=instagram&logoColor=ff6b9d)](https://instagram.com/faheem_cp)
+[![Email](https://img.shields.io/badge/EMAIL-111111?style=for-the-badge&logo=gmail&logoColor=ff7b72)](mailto:faheemcp241@gmail.com)
+![Views](https://komarev.com/ghpvc/?username=Faheem-Musthafa&style=for-the-badge&color=30363d&label=VISITORS)
 
 </div>
 
 ---
 
-## whoami
-
-```bash
-$ cat faheem.json
-```
-
-```json
-{
-  "name": "Faheem Musthafa",
-  "role": "Full-Stack Developer & AI Builder",
-  "location": "Kerala, India 🇮🇳",
-  "focus": ["Agentic AI", "Automation", "Self-Hosted Infra", "SaaS"],
-  "learning": ["GCP", "Terraform", "DevSecOps"],
-  "building": "RateCheck — AI-powered freelance pricing intelligence",
-  "philosophy": "Ship fast. Learn in public. Build relentlessly."
-}
-```
-
----
-
-## ⚡ Current Build
-
-> **[RateCheck](https://rate-check.vercel.app)** — Clients submit project briefs, an AI generates personalized cost reports for freelancers.  
-> Stack: `Next.js` · `Supabase` · `OpenRouter` · `Upstash Redis` · `Resend` · `Vercel`
-
----
-
-## 🛠 Stack
+# `CONTROL_ROOM / 01`
 
 <table>
-  <tr>
-    <td valign="top" width="33%">
+<tr>
+<td width="58%" valign="top">
 
-**Languages**
-```
-Python · TypeScript
-JavaScript · Bash · C++
-```
+## `operator.profile`
 
-**Frontend**
-```
-React · Next.js · Vite
-Tailwind CSS
-```
+```ts
+const operator = {
+  name: "Faheem Musthafa",
+  role: "Full-Stack Developer & AI Builder",
+  location: "Kerala, India",
 
-  </td>
-  <td valign="top" width="33%">
+  likes: [
+    "Useful software",
+    "Clean system design",
+    "Automation",
+    "Good dashboards",
+    "Things running on my own server"
+  ],
 
-**Backend & APIs**
-```
-Node.js · FastAPI
-Django · Express
-```
+  currentlyLearning: [
+    "GCP",
+    "Terraform",
+    "DevSecOps",
+    "System Design"
+  ],
 
-**AI / Agents**
-```
-LangChain · OpenRouter
-Gemini · Ollama (local)
-```
-
-  </td>
-  <td valign="top" width="33%">
-
-**Infra & DBs**
-```
-PostgreSQL · Redis
-Supabase · Firebase
-Nginx · Docker
+  dangerLevel: "Will redesign your dashboard at 2 AM"
+};
 ```
 
-**Cloud & DevOps**
-```
-Vercel · GCP (learning)
-Terraform · Cloudflare
+</td>
+<td width="42%" valign="top">
+
+## `live.telemetry`
+
+```text
+CPU      ████████░░  82%
+FOCUS    █████████░  94%
+COFFEE   ██████░░░░  63%
+BUGS     ███░░░░░░░  28%
+IDEAS    ██████████  100%
+SLEEP    ██░░░░░░░░  classified
 ```
 
-  </td>
-  </tr>
+```text
+> status --today
+
+building...
+debugging...
+learning...
+shipping...
+```
+
+</td>
+</tr>
 </table>
 
 ---
 
-## 🏗 Selected Projects
-
-| Project | Description | Stack |
-|--------|-------------|-------|
-| **[RateCheck](https://rate-check.vercel.app)** | AI freelance pricing intelligence tool | Next.js, Supabase, Gemini, Redis |
-| **VulnLab** | CTF-style cybersecurity learning platform | Next.js, Express, PostgreSQL, Docker |
-| **IEDC Dashboard** | Role-based college event & attendance system | Next.js, Supabase, QR |
-| **AI Inventory Analyst** | Claude-powered inventory insights widget | React, TypeScript, Firebase |
-| **Homelab (archlab)** | Self-hosted infra: n8n, PocketBase, GitLab, monitoring | Arch Linux, Nginx, Cloudflare Tunnel |
-
----
-
-## 📈 GitHub Stats
+# `MISSION_BOARD / 02`
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Faheem-Musthafa&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9" height="165" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Faheem-Musthafa&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" height="165" />
+```text
+┌──────────────────────────────────────────────────────────────────────┐
+│ ACTIVE MISSION                                                       │
+├──────────────────────────────────────────────────────────────────────┤
+│ RATECHECK                                                            │
+│ AI-powered freelance pricing intelligence                           │
+│                                                                      │
+│ Input  : client project brief                                        │
+│ Output : scope, complexity, estimate, structured pricing report      │
+└──────────────────────────────────────────────────────────────────────┘
+```
 
-</div>
+[![Open App](https://img.shields.io/badge/LAUNCH_RATECHECK-0d1117?style=for-the-badge&logo=vercel&logoColor=58a6ff)](https://rate-check.vercel.app)
 
-<div align="center">
-
-![GitHub Streak](https://streak-stats.demolab.com?user=Faheem-Musthafa&theme=tokyonight&hide_border=true&background=0d1117&stroke=58a6ff&ring=58a6ff&fire=ff6b35&currStreakLabel=c9d1d9)
+`Next.js` · `Supabase` · `OpenRouter` · `Redis` · `Resend` · `Vercel`
 
 </div>
 
 ---
 
-## 🧠 What I'm Exploring
+# `PROJECT_ARCADE / 03`
 
-- 🔧 GCP + Terraform — building startup-ready cloud infra from scratch
-- 🤖 Agentic AI workflows — multi-step, tool-using AI pipelines
-- 🔐 DevSecOps — hardening self-hosted and cloud systems
-- 📦 Self-hosting everything — GitLab CE, n8n, monitoring stacks
+<table>
+<tr>
+<td width="50%" valign="top">
+
+## `01 // Kerala AI Checker`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
+[![Demo](https://img.shields.io/badge/LIVE_DEMO-111111?style=flat-square&logo=googlecloud&logoColor=58a6ff)](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
+
+```text
+MISSION:
+Detect suspicious Malayalam and Manglish
+WhatsApp/SMS scam messages.
+
+SPECIAL ABILITY:
+Explains scams in simple language for
+elderly and non-technical users.
+```
+
+`Next.js` `Gemini` `Cloud Run` `Tailwind`
+
+</td>
+<td width="50%" valign="top">
+
+## `02 // RouteReport Live`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/Route-Report-system)
+
+```text
+MISSION:
+Community-powered road issue reporting.
+
+FEATURES:
+GPS · live reports · maps · severity
+filters · analytics · realtime updates
+```
+
+`React` `TypeScript` `Supabase` `Leaflet`
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+## `03 // DadArch`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/DadArch)
+
+```text
+MISSION:
+A premium architecture portfolio.
+
+FOCUS:
+Visual storytelling · project presentation
+responsive layouts · deployment workflows
+```
+
+`Frontend` `Portfolio UX` `Vercel` `DNS`
+
+</td>
+<td width="50%" valign="top">
+
+## `04 // IEDC MCAS Website`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/IEDC-MCAS-website)
+
+```text
+MISSION:
+Digital home for college innovation,
+programmes, events, and student activity.
+
+MODE:
+Community-first web experience
+```
+
+`Web Development` `Responsive UI` `Events`
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+## `05 // LMS Backend`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/lms-backend)
+
+```text
+MISSION:
+Backend foundations for learning systems.
+
+MODULES:
+Auth · content · data models · APIs
+education workflows
+```
+
+`Backend` `API Design` `Education`
+
+</td>
+<td width="50%" valign="top">
+
+## `06 // Self-Hosted Guide`
+
+[![Repo](https://img.shields.io/badge/VIEW_REPOSITORY-111111?style=flat-square&logo=github)](https://github.com/Faheem-Musthafa/self-hosted-guide)
+
+```text
+MISSION:
+Run useful software on your own hardware.
+
+TOOLS:
+Linux · Nginx · Docker · Cloudflare
+private services · automation
+```
+
+`Linux` `Docker` `Nginx` `Self-Hosting`
+
+</td>
+</tr>
+</table>
 
 ---
 
+# `SIDE_QUESTS / 04`
+
+```text
+[✓] Electra Shield        cybersecurity experiments
+[✓] Moon Phase Tracker    astronomy + interface design
+[✓] Smart Note            lightweight note system
+[✓] Project AutoHub       project organization experiments
+[✓] OpenTask              task management concepts
+[✓] PassGuardian          password/security tooling
+[✓] UniMinder             student productivity project
+[✓] SIH_WEB_25            hackathon build
+[✓] Slaq AI               AI product experiments
+```
+
 <div align="center">
 
-```
-┌─────────────────────────────────────────┐
-│  "Stay curious. Build relentlessly."    │
-└─────────────────────────────────────────┘
+[![Explore All](https://img.shields.io/badge/EXPLORE_ALL_REPOSITORIES-111111?style=for-the-badge&logo=github&logoColor=ffffff)](https://github.com/Faheem-Musthafa?tab=repositories)
+
+</div>
+
+---
+
+# `TECH_TREE / 05`
+
+```mermaid
+flowchart TD
+    A[Faheem.exe] --> B[Frontend]
+    A --> C[Backend]
+    A --> D[AI]
+    A --> E[Infra]
+    A --> F[Security]
+
+    B --> B1[React]
+    B --> B2[Next.js]
+    B --> B3[Flutter]
+    B --> B4[Tailwind]
+
+    C --> C1[Node.js]
+    C --> C2[FastAPI]
+    C --> C3[Django]
+    C --> C4[tRPC]
+
+    D --> D1[Gemini]
+    D --> D2[OpenRouter]
+    D --> D3[Claude]
+    D --> D4[Ollama]
+
+    E --> E1[Docker]
+    E --> E2[Nginx]
+    E --> E3[GCP]
+    E --> E4[Terraform]
+
+    F --> F1[DevSecOps]
+    F --> F2[Linux]
+    F --> F3[Cloudflare]
 ```
 
-*Open to freelance projects, collabs, and interesting problems.*  
-**→ [faheemcp241@gmail.com](mailto:faheemcp241@gmail.com)**
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,ts,js,bash,cpp,react,nextjs,vite,tailwind,flutter,nodejs,fastapi,django,express,postgres,redis,supabase,firebase,gcp,cloudflare,docker,terraform,nginx,linux,git,github&theme=dark" />
+
+</div>
+
+---
+
+# `SYSTEM_MAP / 06`
+
+```text
+┌──────────────┐
+│ REAL PROBLEM │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ USER FLOWS   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ DATA MODEL   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ BACKEND/API  │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ INTERFACE    │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ DEPLOYMENT   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ FEEDBACK LOOP│
+└──────────────┘
+```
+
+```text
+Developer rule #01:
+Never automate a broken workflow before understanding why it is broken.
+
+Developer rule #02:
+A dashboard with 14 cards is usually asking for therapy.
+
+Developer rule #03:
+If it works on localhost, congratulations. The tutorial has begun.
+```
+
+---
+
+# `GITHUB_RADAR / 07`
+
+<div align="center">
+
+<a href="https://github.com/Faheem-Musthafa">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Faheem-Musthafa&theme=github_dark"
+    width="100%"
+    alt="Faheem's GitHub profile summary"
+  />
+</a>
+
+<br/><br/>
+
+<img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Faheem-Musthafa&theme=github_dark"
+  height="170"
+  alt="Repositories per language"
+/>
+
+<img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Faheem-Musthafa&theme=github_dark"
+  height="170"
+  alt="Most used commit language"
+/>
+
+<br/><br/>
+
+<img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Faheem-Musthafa&theme=github_dark"
+  height="170"
+  alt="GitHub statistics"
+/>
+
+<img
+  src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Faheem-Musthafa&theme=github_dark&utcOffset=5.5"
+  height="170"
+  alt="Productive coding time"
+/>
+
+<br/><br/>
+
+<img
+  src="https://github-readme-activity-graph.vercel.app/graph?username=Faheem-Musthafa&bg_color=0d1117&color=8b949e&line=58a6ff&point=ff7b72&area=true&hide_border=true"
+  width="100%"
+  alt="Faheem's contribution graph"
+/>
+
+</div>
+
+---
+
+# `ACHIEVEMENTS_UNLOCKED / 08`
+
+```text
+[ UNLOCKED ] Built real-world ERP workflows
+[ UNLOCKED ] Deployed apps on Google Cloud
+[ UNLOCKED ] Designed multi-role systems
+[ UNLOCKED ] Built with Supabase RLS
+[ UNLOCKED ] Survived DNS propagation
+[ UNLOCKED ] Used Arch Linux voluntarily
+[ LOCKED   ] Finish every side project
+[ LOCKED   ] Close all browser tabs
+```
+
+---
+
+# `CURRENT_QUESTS / 09`
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### `AI`
+
+```text
+tool-using agents
+multi-step workflows
+local models
+AI product UX
+```
+
+</td>
+<td width="33%" valign="top">
+
+### `CLOUD`
+
+```text
+GCP
+Terraform
+deployment
+observability
+```
+
+</td>
+<td width="33%" valign="top">
+
+### `SYSTEMS`
+
+```text
+DevSecOps
+multi-tenancy
+ERP architecture
+self-hosting
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+# `TRANSMISSION / 10`
+
+<div align="center">
+
+```text
+╭────────────────────────────────────────────────────────────────────╮
+│ AVAILABLE FOR                                                      │
+├────────────────────────────────────────────────────────────────────┤
+│ Full-stack products                                                │
+│ AI-powered tools                                                   │
+│ SaaS MVPs                                                          │
+│ ERP and internal systems                                           │
+│ Automation workflows                                               │
+│ Backend and cloud infrastructure                                   │
+╰────────────────────────────────────────────────────────────────────╯
+```
+
+[![Email](https://img.shields.io/badge/START_A_CONVERSATION-111111?style=for-the-badge&logo=gmail&logoColor=ff7b72)](mailto:faheemcp241@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/CONNECT_ON_LINKEDIN-111111?style=for-the-badge&logo=linkedin&logoColor=58a6ff)](https://linkedin.com/in/faheem-musthafa-cp)
+
+<br/><br/>
+
+```text
+······························································
+··  BUILD USEFUL THINGS · BREAK A FEW · FIX THEM · SHIP AGAIN    ··
+······························································
+```
+
+<sub>Powered by curiosity, Linux, caffeine, and suspiciously many terminal windows.</sub>
 
 </div>
