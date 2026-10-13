@@ -1,215 +1,101 @@
-<div align="center">
-
 # Hi, I'm Faheem Musthafa 👋
 
-### Full-Stack Developer · AI Builder · Automation Enthusiast
+**Software Developer | Full-Stack Development, Backend Systems & AI-Powered Products**
 
-I build practical web applications, AI-powered tools, internal systems, and cloud-ready products.
+I build practical software that solves real problems — from web applications and backend services to automation tools and AI-powered features.
 
-<p>
-  <a href="https://linkedin.com/in/faheem-musthafa-cp">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
-  </a>
-  <a href="mailto:faheemcp241@gmail.com">
-    <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" />
-  </a>
-  <a href="https://instagram.com/faheem_cp">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" />
-  </a>
-</p>
+I'm interested in understanding how systems work end to end: from the user interface and database to APIs, deployment, and infrastructure.
 
-</div>
+- 💻 Building full-stack applications and backend systems
+- 🛠️ Exploring system design, cloud infrastructure, and DevSecOps
+- 🤖 Experimenting with AI integrations and automation
+- 📍 Kerala, India
+
+[LinkedIn](https://linkedin.com/in/faheem-cp) · [Email](mailto:faheemcp241@gmail.com) · [Portfolio](https://www.faheemcp.tech)
 
 ---
 
-## About Me
-
-```ts
-const faheem = {
-  location: "Kerala, India",
-  role: "Full-Stack Developer & AI Builder",
-  focus: [
-    "AI Products",
-    "Backend Engineering",
-    "ERP Systems",
-    "Automation",
-    "Self-Hosted Infrastructure"
-  ],
-  learning: ["GCP", "Terraform", "DevSecOps", "System Design"]
-};
-```
-
-I enjoy turning real business problems into reliable software. My work spans frontend development, backend APIs, database design, deployment, automation, and product architecture.
-
----
-
-## Current Build
+## 🚀 Featured Projects
 
 ### [RateCheck](https://rate-check.vercel.app)
 
-AI-powered freelance pricing intelligence that converts project briefs into structured cost and scope reports.
+**AI-powered freelance pricing intelligence**
 
-**Tech:** Next.js · Supabase · OpenRouter · Redis · Resend · Vercel
+A tool that turns project briefs into structured pricing and scope reports, helping freelancers communicate project costs and manage client expectations.
 
----
-
-## Featured Projects
-
-<table>
-<tr>
-<td width="50%" valign="top">
+**Tech:** Next.js · Supabase · OpenRouter · Redis · Resend
 
 ### [Kerala AI Checker](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
 
-A Malayalam and Manglish scam-message analyser designed to help elderly and non-technical users identify suspicious WhatsApp and SMS messages.
+**Scam-message analysis for Malayalam and Manglish**
+
+A hackathon project designed to help elderly and non-technical users understand suspicious messages through a visual trust score and simplified explanations.
 
 **Tech:** Next.js · Gemini · Tailwind CSS · Google Cloud Run
 
 [Live Demo](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
 
-</td>
-<td width="50%" valign="top">
-
 ### [RouteReport Live](https://github.com/Faheem-Musthafa/Route-Report-system)
 
-A community-driven road-condition reporting platform with live reports, maps, location detection, filters, and analytics.
+**Community-driven road-condition reporting**
+
+A platform for reporting road conditions with maps, location detection, filtering, and analytics.
 
 **Tech:** React · TypeScript · Supabase · Leaflet · PostgreSQL
 
-</td>
-</tr>
+### [The Signal](https://the-signals-news.vercel.app/)
 
-<tr>
-<td width="50%" valign="top">
+**AI-powered executive briefing generator**
 
-### [DadArch](https://github.com/Faheem-Musthafa/DadArch)
+A project exploring topic-based information gathering, AI-generated briefings, authentication, caching, and persistent digest history.
 
-A modern architecture portfolio focused on project presentation, responsive design, and a premium visual experience.
+**Tech:** Next.js · Convex · Clerk · Firecrawl · OpenRouter
 
-**Tech:** Frontend Development · Responsive UI · Vercel · DNS
+### More Projects
 
-</td>
-<td width="50%" valign="top">
-
-### [IEDC MCAS Website](https://github.com/Faheem-Musthafa/IEDC-MCAS-website)
-
-A college innovation-community website for showcasing programmes, events, activities, and student initiatives.
-
-**Tech:** Web Development · Responsive Design · Event Content
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### [LMS Backend](https://github.com/Faheem-Musthafa/lms-backend)
-
-Backend foundation for learning-management workflows, authentication, data modelling, and educational services.
-
-**Tech:** Backend APIs · Authentication · Education Systems
-
-</td>
-<td width="50%" valign="top">
-
-### [Self-Hosted Guide](https://github.com/Faheem-Musthafa/self-hosted-guide)
-
-Practical notes and guides for running tools, services, and infrastructure on personal hardware.
-
-**Tech:** Linux · Docker · Nginx · Cloudflare · Self-Hosting
-
-</td>
-</tr>
-</table>
+- [DadArch](https://github.com/Faheem-Musthafa/DadArch) — Architecture portfolio and responsive web design.
+- [LMS Backend](https://github.com/Faheem-Musthafa/lms-backend) — Backend foundation for learning-management workflows.
+- [Self-Hosted Guide](https://github.com/Faheem-Musthafa/self-hosted-guide) — Notes on Linux, self-hosting, and infrastructure.
 
 ---
 
-## Tech Stack
+## 🧰 Technologies
 
-### Languages
+**Languages**
 
-<p>
-  <img src="https://skillicons.dev/icons?i=python,ts,js,bash,cpp&theme=dark" />
-</p>
+TypeScript · JavaScript · Python · Bash · C++
 
-### Frontend
+**Frontend**
 
-<p>
-  <img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,flutter&theme=dark" />
-</p>
+React · Next.js · Vite · Tailwind CSS
 
-### Backend & Data
+**Backend & Databases**
 
-<p>
-  <img src="https://skillicons.dev/icons?i=nodejs,fastapi,django,express,postgres,redis,supabase,firebase&theme=dark" />
-</p>
+Node.js · Express · FastAPI · PostgreSQL · Supabase · Redis
 
-### Cloud & DevOps
+**Infrastructure & Tools**
 
-<p>
-  <img src="https://skillicons.dev/icons?i=gcp,vercel,cloudflare,docker,terraform,nginx,linux,git,github&theme=dark" />
-</p>
+Linux · Docker · Nginx · Cloudflare · GCP · Git · GitHub
 
 ---
 
-## What I'm Exploring
+## 🌱 Currently Exploring
 
-- Agentic AI workflows
-- GCP deployment and infrastructure
-- Terraform
-- DevSecOps
-- Multi-tenant SaaS architecture
-- ERP and internal business systems
-- Self-hosted tools and automation
-
----
-
-## GitHub Activity
-
-<div align="center">
-
-<img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Faheem-Musthafa&theme=github_dark"
-  width="100%"
-  alt="Faheem's GitHub profile summary"
-/>
-
-<br/><br/>
-
-<img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Faheem-Musthafa&theme=github_dark"
-  height="165"
-  alt="Repositories per language"
-/>
-
-<img
-  src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Faheem-Musthafa&theme=github_dark"
-  height="165"
-  alt="GitHub statistics"
-/>
-
-</div>
+- System design and backend architecture
+- Agentic AI workflows and practical AI integrations
+- GCP deployment and infrastructure automation
+- Terraform and DevSecOps
+- Multi-tenant SaaS and internal business systems
+- Self-hosted services and automation
 
 ---
 
-## Let's Connect
+## 🤝 Let's Connect
 
-I'm open to:
+I'm interested in collaborating on useful software products, backend systems, SaaS applications, and automation projects.
 
-- Full-stack application development
-- AI-powered tools
-- SaaS MVPs
-- ERP and internal systems
-- Backend and cloud infrastructure
-- Automation projects
+If you're building something interesting, I'd love to connect and learn more.
 
-<div align="center">
+[Connect on LinkedIn](https://linkedin.com/in/faheem-cp) · [Send me an email](mailto:faheemcp241@gmail.com)
 
-[![Email Me](https://img.shields.io/badge/Email_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:faheemcp241@gmail.com)
-[![Connect on LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/faheem-musthafa-cp)
-
-<br/><br/>
-
-**Build useful things. Learn fast. Ship consistently.**
-
-</div>
+*Build useful things. Understand the systems. Keep learning.*
