@@ -29,6 +29,7 @@ I turn real-world problems into practical software, from full-stack apps and bac
 |  |  |
 |---|---|
 | **Building** | AI-powered products, automation, self-hosted infrastructure |
+| **Security** | Certified Penetration Tester (CPT), authorized recon and vulnerability-discovery tooling |
 | **Learning** | System design, GCP and Terraform, DevSecOps, agentic workflows |
 | **Approach** | Build it, understand the trade-offs, improve it |
 
@@ -62,7 +63,7 @@ I turn real-world problems into practical software, from full-stack apps and bac
       <h3>RouteReport Live</h3>
       <p><b>Community road-condition reporting.</b> Location detection, interactive maps, filters and analytics.</p>
       <p><sub><code>React</code> <code>TypeScript</code> <code>Supabase</code> <code>Leaflet</code> <code>PostgreSQL</code></sub></p>
-      <p><a href="https://github.com/Faheem-Musthafa/Route-Report-system">Source →</a></p>
+      <p><a href="https://hackathon-kappa-henna.vercel.app">Live demo →</a> · <a href="https://github.com/Faheem-Musthafa/Route-Report-system">Source →</a></p>
     </td>
   </tr>
 </table>
@@ -80,6 +81,31 @@ I turn real-world problems into practical software, from full-stack apps and bac
 | [IEDC MCAS Website](https://github.com/Faheem-Musthafa/IEDC-MCAS-website) | Website for a college innovation community |
 
 </details>
+
+---
+
+## Security
+
+I build software and I also test it. I'm a Certified Penetration Tester (CPT), and I keep my security work to authorized testing and learning.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>ShadowHound</h3>
+      <p><b>Recon and vulnerability-discovery toolkit for authorized pentesting.</b> Modular tools for subdomain enumeration, JS endpoint extraction, XSS fuzzing and git-leak scanning.</p>
+      <p><sub><code>Python</code></sub></p>
+      <p><a href="https://github.com/Faheem-Musthafa/ShadowHound">Source →</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Cheat sheets</h3>
+      <p><b>Reference material for learning offensive security</b>, from beginner payloads to a broader cybersecurity master list.</p>
+      <p>
+        <a href="https://github.com/Faheem-Musthafa/Beginner-to-Expert-Payloads-Exploits-Cheat-Sheet">Payloads and exploits →</a><br>
+        <a href="https://github.com/Faheem-Musthafa/The-Ultimate-Cybersecurity-Master-Cheat-Sheet">Cybersecurity master sheet →</a>
+      </p>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -107,7 +133,7 @@ I turn real-world problems into practical software, from full-stack apps and bac
 
 - Designing more reliable backend systems and learning system design fundamentals
 - Agentic AI workflows
-- Cloud infrastructure with GCP, plus Terraform and DevSecOps
+- Cloud infrastructure with GCP, plus Terraform and DevSecOps (bringing my security background into the build pipeline)
 
 ---
 
