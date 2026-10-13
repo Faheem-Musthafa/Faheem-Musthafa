@@ -1,101 +1,159 @@
-# Hi, I'm Faheem Musthafa 👋
+```text
+ ______      __
+|  ____|    / _|
+| |__ __ _ | |_  ___  ___ _ __ ___
+|  __/ _` ||  _|/ _ \/ _ \ '_ ` _ \
+| | | (_| || | |  __/  __/ | | | | |
+|_|  \__,_||_|  \___|\___|_| |_| |_|
 
-**Software Developer | Full-Stack Development, Backend Systems & AI-Powered Products**
++------------------------------------------------------+
+|  SOFTWARE DEVELOPER                                  |
+|  Full-Stack Engineering / Backend Systems / AI       |
+|                                                      |
+|  Building useful software. Understanding systems.    |
+|  Learning by shipping.                               |
++------------------------------------------------------+
+```
 
-I build practical software that solves real problems — from web applications and backend services to automation tools and AI-powered features.
+# `faheem@github:~$ whoami`
 
-I'm interested in understanding how systems work end to end: from the user interface and database to APIs, deployment, and infrastructure.
+Hey, I'm **Faheem Musthafa**, a developer from Kerala, India.
 
-- 💻 Building full-stack applications and backend systems
-- 🛠️ Exploring system design, cloud infrastructure, and DevSecOps
-- 🤖 Experimenting with AI integrations and automation
-- 📍 Kerala, India
+I enjoy turning real-world problems into practical software — from full-stack applications and backend services to AI-powered tools and automation.
 
-[LinkedIn](https://linkedin.com/in/faheem-cp) · [Email](mailto:faheemcp241@gmail.com) · [Portfolio](https://www.faheemcp.tech)
+I'm interested in understanding how software works end to end: APIs, databases, system architecture, deployment, and infrastructure.
+
+```yaml
+focus:
+  - Full-stack development
+  - Backend engineering
+  - AI-powered products
+  - Automation & infrastructure
+
+currently_learning:
+  - System design
+  - GCP & Terraform
+  - DevSecOps
+  - Agentic workflows
+```
+
+[LinkedIn](https://linkedin.com/in/faheem-musthafa-cp) · [Email](mailto:faheemcp241@gmail.com) · [Instagram](https://instagram.com/faheem_cp)
 
 ---
 
-## 🚀 Featured Projects
+## `01 // selected_work`
 
-### [RateCheck](https://rate-check.vercel.app)
+### `> RateCheck`
 
 **AI-powered freelance pricing intelligence**
 
-A tool that turns project briefs into structured pricing and scope reports, helping freelancers communicate project costs and manage client expectations.
+Turns project briefs into structured cost and scope reports, helping freelancers explain project pricing and set realistic client expectations.
 
-**Tech:** Next.js · Supabase · OpenRouter · Redis · Resend
+- **Stack:** Next.js, Supabase, OpenRouter, Redis, Resend
+- **Demo:** [rate-check.vercel.app](https://rate-check.vercel.app)
 
-### [Kerala AI Checker](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
-
-**Scam-message analysis for Malayalam and Manglish**
-
-A hackathon project designed to help elderly and non-technical users understand suspicious messages through a visual trust score and simplified explanations.
-
-**Tech:** Next.js · Gemini · Tailwind CSS · Google Cloud Run
-
-[Live Demo](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
-
-### [RouteReport Live](https://github.com/Faheem-Musthafa/Route-Report-system)
-
-**Community-driven road-condition reporting**
-
-A platform for reporting road conditions with maps, location detection, filtering, and analytics.
-
-**Tech:** React · TypeScript · Supabase · Leaflet · PostgreSQL
-
-### [The Signal](https://the-signals-news.vercel.app/)
+### `> The Signal`
 
 **AI-powered executive briefing generator**
 
-A project exploring topic-based information gathering, AI-generated briefings, authentication, caching, and persistent digest history.
+A tool for generating topic-based briefings, with web crawling, authentication, persistent history, caching, and rate limiting.
 
-**Tech:** Next.js · Convex · Clerk · Firecrawl · OpenRouter
+- **Stack:** Next.js, Convex, Clerk, Firecrawl, OpenRouter
+- **Demo:** [the-signals-news.vercel.app](https://the-signals-news.vercel.app/)
 
-### More Projects
+### `> Kerala AI Checker`
 
-- [DadArch](https://github.com/Faheem-Musthafa/DadArch) — Architecture portfolio and responsive web design.
-- [LMS Backend](https://github.com/Faheem-Musthafa/lms-backend) — Backend foundation for learning-management workflows.
-- [Self-Hosted Guide](https://github.com/Faheem-Musthafa/self-hosted-guide) — Notes on Linux, self-hosting, and infrastructure.
+**Scam-message analysis for Malayalam and Manglish**
+
+A hackathon project designed to help elderly and non-technical users identify suspicious messages through trust scores and simple explanations.
+
+- **Stack:** Next.js, Gemini, Tailwind CSS, Google Cloud Run
+- **Source:** [View repository](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
+- **Demo:** [Open application](https://kerala-digital-trust-73820029707.asia-south1.run.app/)
+
+### `> RouteReport Live`
+
+**Community-driven road-condition reporting**
+
+A platform for reporting road conditions with location detection, interactive maps, filters, and analytics.
+
+- **Stack:** React, TypeScript, Supabase, Leaflet, PostgreSQL
+- **Source:** [View repository](https://github.com/Faheem-Musthafa/Route-Report-system)
 
 ---
 
-## 🧰 Technologies
+## `02 // other_projects`
+
+```text
+[01] DadArch
+     Architecture portfolio and responsive web design.
+     github.com/Faheem-Musthafa/DadArch
+
+[02] LMS Backend
+     Backend foundation for learning-management workflows.
+     github.com/Faheem-Musthafa/lms-backend
+
+[03] Self-Hosted Guide
+     Notes on Linux, self-hosting, and infrastructure.
+     github.com/Faheem-Musthafa/self-hosted-guide
+
+[04] IEDC MCAS Website
+     Website for a college innovation community.
+     github.com/Faheem-Musthafa/IEDC-MCAS-website
+```
+
+---
+
+## `03 // toolbox`
 
 **Languages**
 
-TypeScript · JavaScript · Python · Bash · C++
+`TypeScript` `JavaScript` `Python` `Bash` `C++`
 
 **Frontend**
 
-React · Next.js · Vite · Tailwind CSS
+`React` `Next.js` `Vite` `Tailwind CSS`
 
-**Backend & Databases**
+**Backend & Data**
 
-Node.js · Express · FastAPI · PostgreSQL · Supabase · Redis
+`Node.js` `Express` `FastAPI` `PostgreSQL` `Supabase` `Redis`
 
 **Infrastructure & Tools**
 
-Linux · Docker · Nginx · Cloudflare · GCP · Git · GitHub
+`Linux` `Docker` `Nginx` `Cloudflare` `GCP` `Git` `GitHub`
 
 ---
 
-## 🌱 Currently Exploring
+## `04 // currently_exploring`
 
-- System design and backend architecture
-- Agentic AI workflows and practical AI integrations
-- GCP deployment and infrastructure automation
-- Terraform and DevSecOps
-- Multi-tenant SaaS and internal business systems
-- Self-hosted services and automation
+```text
+[+] Designing better backend systems
+[+] Learning system design fundamentals
+[+] Exploring agentic AI workflows
+[+] Understanding cloud infrastructure
+[+] Experimenting with Terraform and DevSecOps
+[+] Building reliable, maintainable applications
+```
+
+I believe the best way to learn engineering is to build things, understand the trade-offs, and improve them through practice.
 
 ---
 
-## 🤝 Let's Connect
+## `05 // contact`
 
-I'm interested in collaborating on useful software products, backend systems, SaaS applications, and automation projects.
+```text
+$ echo "Always open to building something useful."
+```
 
-If you're building something interesting, I'd love to connect and learn more.
+Interested in collaborating on full-stack applications, backend systems, AI-powered products, and automation?
 
-[Connect on LinkedIn](https://linkedin.com/in/faheem-cp) · [Send me an email](mailto:faheemcp241@gmail.com)
+- **LinkedIn:** [Connect with me](https://linkedin.com/in/faheem-musthafa-cp)
+- **Email:** [faheemcp241@gmail.com](mailto:faheemcp241@gmail.com)
 
-*Build useful things. Understand the systems. Keep learning.*
+```text
+--------------------------------------------------------
+  Build useful things.
+  Understand the systems.
+  Keep getting better.
+--------------------------------------------------------
+```
