@@ -1,10 +1,8 @@
 <div align="center">
 
-# Hi, I'm Faheem Musthafa 👋
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Faheem%20Musthafa&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20Developer%20%E2%80%A2%20AI%20Builder%20%E2%80%A2%20Automation&descSize=18&descAlignY=60" alt="header" />
 
-### Full-Stack Developer · AI Builder · Automation Enthusiast
-
-I build practical web applications, AI-powered tools, internal systems, and cloud-ready products.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Full-Stack+Developer+%26+AI+Builder;Turning+business+problems+into+reliable+software;Next.js+%C2%B7+FastAPI+%C2%B7+Supabase+%C2%B7+GCP;Based+in+Kerala%2C+India+%F0%9F%87%AE%F0%9F%87%B3" alt="Typing animation" />
 
 <p>
   <a href="https://linkedin.com/in/faheem-musthafa-cp">
@@ -16,14 +14,12 @@ I build practical web applications, AI-powered tools, internal systems, and clou
   <a href="https://instagram.com/faheem_cp">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" />
   </a>
+  <img src="https://komarev.com/ghpvc/?username=Faheem-Musthafa&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
 </p>
 
 </div>
 
 ---
-
-
-
 
 ## About Me
 
@@ -65,8 +61,6 @@ AI-powered freelance pricing intelligence that converts project briefs into stru
 ### [Kerala AI Checker](https://github.com/Faheem-Musthafa/kerala-digital-trust-or-whatsapp-fact-checker)
 
 A Malayalam and Manglish scam-message analyser designed to help elderly and non-technical users identify suspicious WhatsApp and SMS messages.
-
-
 
 **Tech:** Next.js · Gemini · Tailwind CSS · Google Cloud Run
 
@@ -197,6 +191,18 @@ Practical notes and guides for running tools, services, and infrastructure on pe
 
 ---
 
+## Contribution Snake
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Faheem-Musthafa/Faheem-Musthafa/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Faheem-Musthafa/Faheem-Musthafa/output/github-contribution-grid-snake.svg" />
+    <img alt="snake animation" src="https://raw.githubusercontent.com/Faheem-Musthafa/Faheem-Musthafa/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
+
+---
+
 ## Let's Connect
 
 I'm open to:
@@ -216,5 +222,7 @@ I'm open to:
 <br/><br/>
 
 **Build useful things. Learn fast. Ship consistently.**
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=120&section=footer" alt="footer" />
 
 </div>
