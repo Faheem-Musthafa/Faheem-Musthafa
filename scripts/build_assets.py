@@ -1,387 +1,454 @@
 #!/usr/bin/env python3
-"""Generate the animated SVG cards used in README.md.
+"""Build the profile README and its animated SVG cards.
 
-Edit the content in the DATA section, then run:
+Edit the CONTENT section, then run:
     python scripts/build_assets.py
 
-GitHub renders README images as <img>, so the SVGs use only SMIL animation
-(no JavaScript, no external fonts or images).
+Every card is generated twice (assets/light, assets/dark). The README shows
+the one that matches the visitor's GitHub theme using GitHub's
+`#gh-light-mode-only` / `#gh-dark-mode-only` link fragments, so switching the
+GitHub theme switches the whole profile. SVGs use only SMIL animation and
+system fonts, which is what GitHub's image proxy allows.
 """
 from pathlib import Path
 from textwrap import wrap
 from xml.sax.saxutils import escape as e
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets"
+ASSETS = ROOT / "assets"
 
-# ---------------------------------------------------------------- theme
-SANS = "'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"
-MONO = "'JetBrains Mono', 'Fira Code', Consolas, 'Liberation Mono', Menlo, monospace"
-BG, PANEL, BORDER = "#0d1117", "#161b22", "#30363d"
-TEXT, SOFT, MUTED = "#e6edf3", "#c9d1d9", "#8b949e"
-CYAN, VIOLET, GREEN, PINK, AMBER = "#36bcf7", "#a78bfa", "#3fb950", "#f472b6", "#f59e0b"
-MONO_W = 0.62  # approx. monospace advance per font-size unit
+# ================================================================ CONTENT
+USER = "Faheem-Musthafa"
+PROFILE = f"https://github.com/{USER}"
+NAME = "Faheem Musthafa"
+ROLE = "Full-stack engineer · AI builder"
+TYPED = "building RateCheck — AI pricing for freelancers"
+META = ["Available for freelance", "Kerala, India", "Lincole Group"]
 
-# ---------------------------------------------------------------- data
-NAME = ("Faheem", "Musthafa")
-TAGLINE = "Full-Stack Developer · AI Builder"
-PITCH = "Turning real business problems into reliable software."
-LOCATION = "Kerala, India"
-
-TERMINAL = [  # (command, output)
-    ("whoami", "full-stack dev · ai builder"),
-    ("cat stack.txt", "next.js · fastapi · supabase · gcp"),
-    ("./ship --current", "building RateCheck ... live ✔"),
-]
-
-STATUS = [
-    (GREEN, "Open to freelance & collaborations", True),
-    (AMBER, "Building RateCheck", False),
-    (VIOLET, "Exploring agentic AI · DevSecOps", False),
-]
-
-FEATURED = {
-    "title": "RateCheck",
-    "desc": "AI-powered freelance pricing intelligence that converts project "
-            "briefs into structured cost and scope reports.",
-    "tech": ["Next.js", "Supabase", "OpenRouter", "Redis", "Resend", "Vercel"],
-    "link": "rate-check.vercel.app",
-}
+FEATURED = dict(
+    title="RateCheck",
+    desc="Paste a project brief, get a structured cost and scope report. "
+         "AI pricing intelligence for freelancers who are tired of guessing.",
+    tech="Next.js · Supabase · OpenRouter · Redis · Resend · Vercel",
+    url="https://rate-check.vercel.app",
+)
 
 PROJECTS = [
-    dict(slug="kerala-ai-checker", title="Kerala AI Checker", tag="AI · SCAM DETECTION",
-         initials="KA", accent=CYAN, live=True,
-         desc="A Malayalam and Manglish scam-message analyser that helps elderly "
-              "and non-technical users spot suspicious WhatsApp and SMS messages.",
-         tech=["Next.js", "Gemini", "Tailwind", "Cloud Run"]),
-    dict(slug="routereport-live", title="RouteReport Live", tag="CIVIC TECH · MAPS",
-         initials="RR", accent=GREEN, live=False,
-         desc="Community-driven road-condition reporting with live reports, maps, "
+    dict(slug="kerala-ai-checker", title="Kerala AI Checker", live=True,
+         url=f"{PROFILE}/kerala-digital-trust-or-whatsapp-fact-checker",
+         desc="Checks WhatsApp and SMS messages for scams in Malayalam and "
+              "Manglish, built for elderly and non-technical users.",
+         tech="Next.js · Gemini · Tailwind · Cloud Run"),
+    dict(slug="routereport-live", title="RouteReport Live", live=False,
+         url=f"{PROFILE}/Route-Report-system",
+         desc="Crowd-sourced road conditions with live reports, maps, "
               "location detection, filters and analytics.",
-         tech=["React", "TypeScript", "Supabase", "Leaflet", "PostgreSQL"]),
-    dict(slug="dadarch", title="DadArch", tag="PORTFOLIO · DESIGN",
-         initials="DA", accent=AMBER, live=False,
-         desc="A modern architecture portfolio focused on project presentation, "
-              "responsive design and a premium visual experience.",
-         tech=["Responsive UI", "Vercel", "DNS"]),
-    dict(slug="iedc-mcas", title="IEDC MCAS Website", tag="COMMUNITY · EVENTS",
-         initials="IE", accent=PINK, live=False,
-         desc="A college innovation-community website showcasing programmes, "
-              "events, activities and student initiatives.",
-         tech=["Web", "Responsive", "Events"]),
-    dict(slug="lms-backend", title="LMS Backend", tag="BACKEND · EDTECH",
-         initials="LM", accent=VIOLET, live=False,
-         desc="Backend foundation for learning-management workflows, "
-              "authentication, data modelling and educational services.",
-         tech=["Backend APIs", "Auth", "Data modelling"]),
-    dict(slug="self-hosted-guide", title="Self-Hosted Guide", tag="INFRA · GUIDES",
-         initials="SH", accent=CYAN, live=False,
-         desc="Practical notes and guides for running tools, services and "
-              "infrastructure on personal hardware.",
-         tech=["Linux", "Docker", "Nginx", "Cloudflare"]),
+         tech="React · TypeScript · Supabase · Leaflet"),
+    dict(slug="dadarch", title="DadArch", live=False,
+         url=f"{PROFILE}/DadArch",
+         desc="An architecture portfolio built around project storytelling, "
+              "responsive layouts and a premium feel.",
+         tech="Responsive UI · Vercel · DNS"),
+    dict(slug="iedc-mcas", title="IEDC MCAS Website", live=False,
+         url=f"{PROFILE}/IEDC-MCAS-website",
+         desc="Home for a college innovation community: programmes, events "
+              "and student initiatives in one place.",
+         tech="Web · Responsive · Events"),
+    dict(slug="lms-backend", title="LMS Backend", live=False,
+         url=f"{PROFILE}/lms-backend",
+         desc="The backend for learning platforms: authentication, data "
+              "models and course workflows.",
+         tech="APIs · Auth · Data modelling"),
+    dict(slug="self-hosted-guide", title="Self-Hosted Guide", live=False,
+         url=f"{PROFILE}/self-hosted-guide",
+         desc="Field notes for running real services on your own hardware, "
+              "from containers to tunnels.",
+         tech="Linux · Docker · Nginx · Cloudflare"),
 ]
 
-STACK_ROWS = [
-    [("Python", CYAN), ("TypeScript", CYAN), ("JavaScript", CYAN), ("Bash", CYAN),
-     ("C++", CYAN), ("React", VIOLET), ("Next.js", VIOLET), ("Vite", VIOLET),
-     ("Tailwind", VIOLET), ("Flutter", VIOLET), ("Node.js", GREEN), ("FastAPI", GREEN),
-     ("Django", GREEN), ("Express", GREEN)],
-    [("PostgreSQL", AMBER), ("Redis", AMBER), ("Supabase", AMBER), ("Firebase", AMBER),
-     ("GCP", PINK), ("Vercel", PINK), ("Cloudflare", PINK), ("Docker", PINK),
-     ("Terraform", PINK), ("Nginx", PINK), ("Linux", PINK), ("Git", PINK)],
-]
-STACK_LEGEND = [(CYAN, "languages"), (VIOLET, "frontend"), (GREEN, "backend"),
-                (AMBER, "data"), (PINK, "cloud & devops")]
-
-JOURNEY = [  # (era, title, sub, accent, current)
-    ("ORIGINS", "Cyber-Security", "Prodigy InfoTech · intern", PINK, False),
-    ("APR 2026", "Full-Stack Intern", "Lincole Group", AMBER, False),
-    ("JUL 2026 → NOW", "Full-Stack Engineer", "Lincole Group", CYAN, True),
-    ("ONGOING", "Freelance", "Web · AI · Automation", GREEN, False),
+STACK = [
+    ("Languages", "TypeScript · Python · JavaScript · Bash · C++"),
+    ("Frontend", "React · Next.js · Vite · Tailwind CSS · Flutter"),
+    ("Backend", "FastAPI · Node.js · Express · Django"),
+    ("Data", "PostgreSQL · Supabase · Redis · Firebase"),
+    ("Cloud", "GCP · Vercel · Cloudflare · Docker · Terraform · Nginx"),
+    ("Exploring", "Agentic AI · DevSecOps · Multi-tenant SaaS"),
 ]
 
+EXPERIENCE = [  # (when, role, where, current)
+    ("Jul 2026 — now", "Full-Stack Engineer", "Lincole Group", True),
+    ("Ongoing", "Freelance Developer", "Web apps, AI tools and automation", False),
+    ("Apr 2026", "Full-Stack Engineering Intern", "Lincole Group", False),
+    ("Earlier", "Cyber-Security Intern", "Prodigy InfoTech", False),
+]
 
-# ---------------------------------------------------------------- helpers
-def svg(w, h, body, title):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
-            f'viewBox="0 0 {w} {h}" role="img" aria-label="{e(title)}">'
-            f'<title>{e(title)}</title>{body}</svg>\n')
+CONTACT_TITLE = "Let’s build something useful."
+CONTACT_TEXT = "Open to full-stack apps, AI tools, SaaS MVPs, internal systems and automation."
+BUTTONS = [  # (slug, label, href, primary)
+    ("email", "Email me", "mailto:faheemcp241@gmail.com", True),
+    ("linkedin", "LinkedIn", "https://linkedin.com/in/faheem-musthafa-cp", False),
+    ("instagram", "Instagram", "https://instagram.com/faheem_cp", False),
+]
+MOTTO = "build useful things · learn fast · ship consistently"
 
-
-def fade_in(begin, dy=10, dur=0.7):
-    """Children for a <g opacity="0"> that fades and slides up into place."""
-    return (f'<animate attributeName="opacity" from="0" to="1" begin="{begin:.2f}s" '
-            f'dur="{dur}s" fill="freeze"/>'
-            f'<animateTransform attributeName="transform" type="translate" '
-            f'from="0 {dy}" to="0 0" begin="{begin:.2f}s" dur="{dur}s" fill="freeze" '
-            f'calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>')
-
-
-def pulse_dot(cx, cy, color, r=4):
-    return (f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{color}" opacity="0.5">'
-            f'<animate attributeName="r" values="{r};{r * 2.6};{r}" dur="2s" repeatCount="indefinite"/>'
-            f'<animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>'
-            f'</circle><circle cx="{cx}" cy="{cy}" r="{r}" fill="{color}"/>')
-
-
-def pill(x, y, text, color, size=11, h=22):
-    """Mono pill at (x, y) top-left. Returns (svg, width)."""
-    w = len(text) * size * MONO_W + 18
-    s = (f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="{h / 2}" '
-         f'fill="{color}" fill-opacity="0.10" stroke="{color}" stroke-opacity="0.35"/>'
-         f'<text x="{x + w / 2:.1f}" y="{y + h / 2 + size * 0.36:.1f}" text-anchor="middle" '
-         f'font-family="{MONO}" font-size="{size}" fill="{color}">{e(text)}</text>')
-    return s, w
+# ================================================================ THEME
+SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
+MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
+THEMES = {  # GitHub Primer colours, so the cards look native in each theme
+    "light": dict(bg="#ffffff", surface="#f6f8fa", border="#d1d9e0", text="#1f2328",
+                  muted="#59636e", subtle="#818b98", accent="#0969da", green="#1a7f37",
+                  cell="#eff2f5"),
+    "dark": dict(bg="#0d1117", surface="#151b23", border="#3d444d", text="#f0f6fc",
+                 muted="#9198a1", subtle="#656c76", accent="#4493f8", green="#3fb950",
+                 cell="#151b23"),
+}
+MONO_W, SANS_W = 0.6, 0.56  # rough advance per font-size unit
+W = 840
 
 
-def pill_row(x, y, items, color, max_w, size=11, gap=6):
-    out, cx = [], x
-    for t in items:
-        w = len(t) * size * MONO_W + 18
-        if cx + w > x + max_w:
-            break
-        s, w = pill(cx, y, t, color, size)
-        out.append(s)
-        cx += w + gap
-    return "".join(out)
+# ================================================================ helpers
+def svg(w, h, body, label, t=None):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
+            f'role="img" aria-label="{e(label)}" fill="none"><title>{e(label)}</title>{body}</svg>\n')
 
 
-def typed(x, y, text, begin, color, size=13, cps=0.05, uid="t"):
-    """Text revealed one character at a time. Returns (svg, end_time)."""
+def appear(begin, dy=8, dur=0.6):
+    return (f'<animate attributeName="opacity" from="0" to="1" begin="{begin:.2f}s" dur="{dur}s" fill="freeze"/>'
+            f'<animateTransform attributeName="transform" type="translate" from="0 {dy}" to="0 0" '
+            f'begin="{begin:.2f}s" dur="{dur}s" fill="freeze" calcMode="spline" keyTimes="0;1" '
+            f'keySplines="0.2 0.8 0.2 1"/>')
+
+
+def g_in(begin, inner, dy=8):
+    return f'<g opacity="0">{appear(begin, dy)}{inner}</g>'
+
+
+def text(x, y, s, size, fill, font=SANS, weight=400, anchor="start", ls=0, extra=""):
+    ls_attr = f' letter-spacing="{ls}"' if ls else ""
+    return (f'<text x="{x:.1f}" y="{y:.1f}" font-family="{font}" font-size="{size}" '
+            f'font-weight="{weight}" fill="{fill}" text-anchor="{anchor}"{ls_attr}{extra}>{e(s)}</text>')
+
+
+def pulse(cx, cy, color, r=3.5):
+    return (f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{color}" opacity="0.4">'
+            f'<animate attributeName="r" values="{r};{r * 2.8};{r}" dur="2.2s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite"/></circle>'
+            f'<circle cx="{cx:.1f}" cy="{cy}" r="{r}" fill="{color}"/>')
+
+
+def frame(w, h, c, rx=12):
+    return f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" fill="{c["bg"]}" stroke="{c["border"]}"/>'
+
+
+def typed(x, y, s, begin, c, size=14, cps=0.045, uid="ty"):
     cw = size * MONO_W
-    vals = ";".join(f"{i * cw:.1f}" for i in range(len(text) + 1))
-    dur = max(len(text) * cps, 0.1)
-    s = (f'<clipPath id="{uid}"><rect x="{x}" y="{y - size}" height="{size * 1.6}" width="0">'
-         f'<animate attributeName="width" values="{vals}" calcMode="discrete" '
-         f'begin="{begin:.2f}s" dur="{dur:.2f}s" fill="freeze"/></rect></clipPath>'
-         f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="{size}" fill="{color}" '
-         f'clip-path="url(#{uid})">{e(text)}</text>')
-    return s, begin + dur
+    vals = ";".join(f"{i * cw:.1f}" for i in range(len(s) + 1))
+    dur = len(s) * cps
+    return (f'<clipPath id="{uid}"><rect x="{x}" y="{y - size}" height="{size * 1.6}" width="0">'
+            f'<animate attributeName="width" values="{vals}" calcMode="discrete" begin="{begin:.2f}s" '
+            f'dur="{dur:.2f}s" fill="freeze"/></rect></clipPath>'
+            + text(x, y, s, size, c["text"], MONO, extra=f' clip-path="url(#{uid})"')), begin + dur
 
 
-def card_bg(w, h, rx=16):
-    return (f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{rx}" '
-            f'fill="{BG}" stroke="{BORDER}"/>')
-
-
-# ---------------------------------------------------------------- cards
-def hero():
-    W, H = 840, 360
-    b = [f'''<defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#0d1117"/></linearGradient>
-<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity="0.04"/></pattern>
-<filter id="blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="50"/></filter>
-<linearGradient id="name" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="440" y2="0" spreadMethod="reflect">
-<stop offset="0" stop-color="{CYAN}"/><stop offset="0.5" stop-color="{VIOLET}"/><stop offset="1" stop-color="{PINK}"/>
-<animateTransform attributeName="gradientTransform" type="translate" values="0 0;400 0;0 0" dur="8s" repeatCount="indefinite"/></linearGradient>
-<clipPath id="frame"><rect width="{W}" height="{H}" rx="18"/></clipPath>
-</defs>
-<g clip-path="url(#frame)">
-<rect width="{W}" height="{H}" fill="url(#bg)"/>
-<rect width="{W}" height="{H}" fill="url(#grid)"/>
-<circle cx="140" cy="70" r="110" fill="{CYAN}" opacity="0.22" filter="url(#blur)"><animate attributeName="cx" values="140;300;140" dur="14s" repeatCount="indefinite"/></circle>
-<circle cx="720" cy="300" r="130" fill="{VIOLET}" opacity="0.22" filter="url(#blur)"><animate attributeName="cy" values="300;140;300" dur="12s" repeatCount="indefinite"/></circle>
-<circle cx="420" cy="380" r="90" fill="{PINK}" opacity="0.14" filter="url(#blur)"><animate attributeName="cx" values="420;560;420" dur="16s" repeatCount="indefinite"/></circle>
-</g>
-<rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="18" fill="none" stroke="{BORDER}"/>''']
-
-    # left column
-    b.append(f'<g opacity="0">{fade_in(0.2)}<text x="44" y="84" font-family="{MONO}" '
-             f'font-size="13" letter-spacing="3" fill="{CYAN}">HELLO, WORLD — I’M</text></g>')
-    b.append(f'<g opacity="0">{fade_in(0.45, 16)}'
-             f'<text x="40" y="146" font-family="{SANS}" font-size="58" font-weight="800" fill="url(#name)">{NAME[0]}</text>'
-             f'<text x="40" y="206" font-family="{SANS}" font-size="58" font-weight="800" fill="url(#name)">{NAME[1]}</text></g>')
-    b.append(f'<g opacity="0">{fade_in(0.8)}'
-             f'<text x="44" y="244" font-family="{SANS}" font-size="17" font-weight="600" fill="{SOFT}">{e(TAGLINE)}</text>'
-             f'<text x="44" y="268" font-family="{SANS}" font-size="14" fill="{MUTED}">{e(PITCH)}</text></g>')
-    loc_w = len(LOCATION) * 11 * MONO_W + 36
-    b.append(f'<g opacity="0">{fade_in(1.1)}'
-             f'<rect x="44" y="290" width="{loc_w:.1f}" height="26" rx="13" fill="{PANEL}" stroke="{BORDER}"/>'
-             f'{pulse_dot(60, 303, GREEN, 3.5)}'
-             f'<text x="72" y="307" font-family="{MONO}" font-size="11" fill="{SOFT}">{e(LOCATION)}</text></g>')
-
-    # terminal
-    tx, ty, tw, th = 462, 52, 340, 256
-    b.append(f'<g opacity="0">{fade_in(0.5, 14)}'
-             f'<rect x="{tx}" y="{ty}" width="{tw}" height="{th}" rx="12" fill="{BG}" fill-opacity="0.92" stroke="{BORDER}"/>'
-             f'<path d="M{tx} {ty + 32}V{ty + 12}a12 12 0 0 1 12-12H{tx + tw - 12}a12 12 0 0 1 12 12V{ty + 32}Z" fill="{PANEL}"/>'
-             f'<line x1="{tx}" y1="{ty + 32}" x2="{tx + tw}" y2="{ty + 32}" stroke="{BORDER}"/>'
-             f'<circle cx="{tx + 18}" cy="{ty + 16}" r="5" fill="#ff5f56"/>'
-             f'<circle cx="{tx + 34}" cy="{ty + 16}" r="5" fill="#ffbd2e"/>'
-             f'<circle cx="{tx + 50}" cy="{ty + 16}" r="5" fill="#27c93f"/>'
-             f'<text x="{tx + tw / 2}" y="{ty + 20}" text-anchor="middle" font-family="{MONO}" font-size="11" fill="{MUTED}">faheem@dev: ~</text></g>')
-    t, y, lx = 1.2, ty + 62, tx + 18
-    for i, (cmd, out) in enumerate(TERMINAL):
-        b.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/>'
-                 f'<text x="{lx}" y="{y}" font-family="{MONO}" font-size="13" fill="{GREEN}">$</text></g>')
-        s, t = typed(lx + 16, y, cmd, t + 0.25, TEXT, uid=f"c{i}")
-        b.append(s)
-        b.append(f'<g opacity="0">{fade_in(t + 0.2, 4, 0.4)}<text x="{lx}" y="{y + 24}" '
-                 f'font-family="{MONO}" font-size="13" fill="{CYAN if i < 2 else GREEN}">{e(out)}</text></g>')
-        t += 0.6
-        y += 56
-    b.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/>'
-             f'<text x="{lx}" y="{y}" font-family="{MONO}" font-size="13" fill="{GREEN}">$</text>'
-             f'<rect x="{lx + 16}" y="{y - 12}" width="8" height="15" fill="{CYAN}">'
-             f'<animate attributeName="opacity" values="1;0" dur="1s" calcMode="discrete" repeatCount="indefinite"/></rect></g>')
-    return svg(W, H, "".join(b), "Faheem Musthafa — Full-Stack Developer and AI Builder")
-
-
-def status():
-    W, H, size = 840, 56, 12
-    widths = [len(t) * size * MONO_W + 46 for _, t, _ in STATUS]
-    gap = 12
-    x = (W - sum(widths) - gap * (len(STATUS) - 1)) / 2
-    b = []
-    for i, ((color, text, live), w) in enumerate(zip(STATUS, widths)):
-        dot = pulse_dot(x + 18, 28, color, 4) if live else \
-            f'<rect x="{x + 14:.1f}" y="24" width="8" height="8" rx="2" fill="{color}" transform="rotate(45 {x + 18:.1f} 28)"/>'
-        b.append(f'<g opacity="0">{fade_in(0.15 * i, 6, 0.5)}'
-                 f'<rect x="{x:.1f}" y="12" width="{w:.1f}" height="32" rx="16" fill="{PANEL}" stroke="{color}" stroke-opacity="0.4"/>'
-                 f'{dot}<text x="{x + 32:.1f}" y="32" font-family="{MONO}" font-size="{size}" fill="{SOFT}">{e(text)}</text></g>')
-        x += w + gap
-    return svg(W, H, "".join(b), "Current status")
-
-
-def featured():
-    W, H = 840, 260
-    f = FEATURED
-    b = [f'''<defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="{CYAN}"/><stop offset="0.5" stop-color="{VIOLET}"/><stop offset="1" stop-color="{PINK}"/></linearGradient>
-<radialGradient id="glow" cx="0.8" cy="0.5" r="0.6"><stop offset="0" stop-color="{VIOLET}" stop-opacity="0.18"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></radialGradient></defs>
-{card_bg(W, H)}<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="url(#glow)"/>
-<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="none" stroke="url(#fg)" stroke-width="2" pathLength="1000" stroke-dasharray="160 840" stroke-linecap="round">
-<animate attributeName="stroke-dashoffset" from="0" to="-1000" dur="6s" repeatCount="indefinite"/></rect>''']
-    b.append(f'<text x="36" y="48" font-family="{MONO}" font-size="11" letter-spacing="2" fill="{AMBER}">★ CURRENT BUILD</text>'
-             f'<text x="34" y="94" font-family="{SANS}" font-size="38" font-weight="800" fill="{TEXT}">{e(f["title"])}</text>')
-    for i, line in enumerate(wrap(f["desc"], 50)):
-        b.append(f'<text x="36" y="{126 + i * 21}" font-family="{SANS}" font-size="14.5" fill="{MUTED}">{e(line)}</text>')
-    rows = [f["tech"][:3], f["tech"][3:]]
-    for i, row in enumerate(rows):
-        b.append(pill_row(36, 186 + i * 28, row, CYAN, 400))
-
-    # brief -> AI -> report flow
-    bx, by = 470, 70
-    b.append(f'<g font-family="{MONO}" font-size="10" fill="{MUTED}" text-anchor="middle">'
-             f'<text x="{bx + 44}" y="{by + 136}">project brief</text>'
-             f'<text x="{bx + 170}" y="{by + 136}">AI analysis</text>'
-             f'<text x="{bx + 296}" y="{by + 136}">cost &amp; scope</text></g>')
-    # brief doc
-    b.append(f'<rect x="{bx}" y="{by}" width="88" height="110" rx="10" fill="{PANEL}" stroke="{BORDER}"/>')
-    for i, w in enumerate([60, 48, 64, 40, 56]):
-        b.append(f'<rect x="{bx + 14}" y="{by + 18 + i * 17}" width="{w}" height="6" rx="3" fill="{MUTED}" fill-opacity="0.35"/>')
-    # AI node
-    cx, cy = bx + 170, by + 55
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="34" fill="none" stroke="{VIOLET}" stroke-opacity="0.5">'
-             f'<animate attributeName="r" values="34;46;34" dur="2.4s" repeatCount="indefinite"/>'
-             f'<animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/></circle>'
-             f'<circle cx="{cx}" cy="{cy}" r="34" fill="{PANEL}" stroke="url(#fg)" stroke-width="2"/>'
-             f'<text x="{cx}" y="{cy + 5}" text-anchor="middle" font-family="{MONO}" font-size="14" font-weight="700" fill="{TEXT}">LLM</text>')
-    # report
-    rx = bx + 252
-    b.append(f'<rect x="{rx}" y="{by}" width="88" height="110" rx="10" fill="{PANEL}" stroke="{BORDER}"/>')
-    for i, (lbl, w, col) in enumerate([("scope", 54, CYAN), ("cost", 40, VIOLET), ("time", 62, PINK)]):
-        yy = by + 22 + i * 30
-        b.append(f'<text x="{rx + 12}" y="{yy}" font-family="{MONO}" font-size="9" fill="{MUTED}">{lbl}</text>'
-                 f'<rect x="{rx + 12}" y="{yy + 6}" width="0" height="7" rx="3.5" fill="{col}">'
-                 f'<animate attributeName="width" values="0;{w};{w};0" keyTimes="0;0.3;0.85;1" dur="4s" begin="{0.6 + i * 0.2:.1f}s" repeatCount="indefinite"/></rect>')
-    # connectors with travelling dots
-    for i, (x1, x2) in enumerate([(bx + 92, cx - 38), (cx + 38, rx - 4)]):
-        b.append(f'<line x1="{x1}" y1="{cy}" x2="{x2}" y2="{cy}" stroke="{BORDER}" stroke-width="2" stroke-dasharray="4 4">'
-                 f'<animate attributeName="stroke-dashoffset" from="8" to="0" dur="0.6s" repeatCount="indefinite"/></line>'
-                 f'<circle r="3.5" fill="{CYAN}"><animateMotion path="M{x1} {cy}H{x2}" dur="2s" begin="{i:.1f}s" repeatCount="indefinite"/></circle>')
-    b.append(f'<text x="{W - 30}" y="48" text-anchor="end" font-family="{MONO}" font-size="11" fill="{VIOLET}">{e(f["link"])} ↗</text>')
-    return svg(W, H, "".join(b), f'{f["title"]} — {f["desc"]}')
-
-
-def project_card(p, i):
-    W, H, a = 410, 200, p["accent"]
-    b = [f'''<defs><clipPath id="c"><rect width="{W}" height="{H}" rx="14"/></clipPath>
-<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#fff" stop-opacity="0.07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<linearGradient id="top" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{a}"/><stop offset="1" stop-color="{a}" stop-opacity="0"/></linearGradient></defs>
-{card_bg(W, H, 14)}
-<g clip-path="url(#c)"><rect width="{W}" height="3" fill="url(#top)"/>
-<rect x="-160" y="-40" width="120" height="{H + 80}" fill="url(#shine)" transform="skewX(-20)">
-<animateTransform attributeName="transform" type="translate" values="0 0;720 0;720 0" keyTimes="0;0.3;1" dur="7s" begin="{i * 0.7:.1f}s" repeatCount="indefinite" additive="sum"/></rect></g>''']
-    b.append(f'<rect x="22" y="22" width="38" height="38" rx="10" fill="{a}" fill-opacity="0.12" stroke="{a}" stroke-opacity="0.5"/>'
-             f'<text x="41" y="46" text-anchor="middle" font-family="{MONO}" font-size="13" font-weight="700" fill="{a}">{p["initials"]}</text>'
-             f'<text x="72" y="39" font-family="{SANS}" font-size="18" font-weight="700" fill="{TEXT}">{e(p["title"])}</text>'
-             f'<text x="72" y="57" font-family="{MONO}" font-size="9.5" letter-spacing="1.2" fill="{a}">{e(p["tag"])}</text>')
-    if p["live"]:
-        b.append(f'{pulse_dot(W - 62, 36, GREEN, 3.5)}<text x="{W - 52}" y="40" font-family="{MONO}" font-size="10" fill="{GREEN}">LIVE</text>')
+def sun_moon(x, y, c, theme):
+    if theme == "light":
+        rays = "".join(
+            f'<line x1="{x}" y1="{y - 9}" x2="{x}" y2="{y - 7}" stroke="{c["muted"]}" stroke-width="1.5" '
+            f'stroke-linecap="round" transform="rotate({a} {x} {y})"/>' for a in range(0, 360, 45))
+        icon = f'<circle cx="{x}" cy="{y}" r="4" stroke="{c["muted"]}" stroke-width="1.5"/>{rays}'
     else:
-        b.append(f'<text x="{W - 24}" y="42" text-anchor="end" font-family="{SANS}" font-size="16" fill="{MUTED}">↗</text>')
+        icon = (f'<path d="M{x + 3} {y - 6.5}a7 7 0 1 0 4 9.5a5.5 5.5 0 0 1 -4 -9.5z" '
+                f'stroke="{c["muted"]}" stroke-width="1.5" stroke-linejoin="round"/>')
+    return icon + text(x + 14, y + 4, f"{theme} theme", 11, c["subtle"], MONO, anchor="start")
+
+
+# ================================================================ cards
+def hero(c, theme):
+    H = 320
+    b = [frame(W, H, c, 14)]
+    b.append(g_in(0.05, text(36, 46, f"{USER.lower()} / README.md", 12, c["subtle"], MONO), 0))
+    b.append(g_in(0.05, sun_moon(W - 120, 42, c, theme), 0))
+    b.append(f'<line x1="0.5" y1="70" x2="{W - 0.5}" y2="70" stroke="{c["border"]}"/>')
+    b.append(g_in(0.2, text(34, 134, NAME, 50, c["text"], weight=700, ls=-1.5)
+             + f'<circle cx="{34 + len(NAME) * 50 * 0.535:.1f}" cy="128" r="5" fill="{c["accent"]}"/>', 12))
+    b.append(g_in(0.4, text(36, 170, ROLE, 18, c["muted"])))
+    t0 = 0.9
+    b.append(g_in(0.6, text(36, 214, "$", 14, c["accent"], MONO, 600)))
+    s, t1 = typed(54, 214, TYPED, t0, c)
+    b.append(s)
+    # cursor: an invisible copy of the line sets the exact offset in whatever font renders
+    b.append(f'<text x="54" y="214" font-family="{MONO}" font-size="14"><tspan fill-opacity="0">{e(TYPED)} </tspan>'
+             f'<tspan fill="{c["accent"]}" opacity="0">█<set attributeName="opacity" to="1" begin="{t1:.2f}s"/>'
+             f'<animate attributeName="opacity" values="1;0" calcMode="discrete" dur="1.1s" begin="{t1:.2f}s" '
+             f'repeatCount="indefinite"/></tspan></text>')
+    # meta row
+    x, parts = 36, []
+    for i, m in enumerate(META):
+        if i == 0:
+            parts.append(pulse(x + 4, 263, c["green"]))
+            x += 16
+        parts.append(text(x, 267, m, 12.5, c["muted"], MONO))
+        x += len(m) * 12.5 * MONO_W + 16
+        if i < len(META) - 1:
+            parts.append(f'<circle cx="{x - 8:.1f}" cy="263" r="1.5" fill="{c["subtle"]}"/>')
+    b.append(g_in(0.7, "".join(parts)))
+    # contribution-style dot grid with a diagonal wave
+    cols, rows, step, size = 9, 7, 22, 15
+    gx, gy = W - 36 - cols * step + (step - size), 96
+    levels = [0.0, 0.25, 0.45, 0.7, 1.0]
+    cells = []
+    for r in range(rows):
+        for col in range(cols):
+            lv = levels[(col * 7 + r * 13 + col * r) % 5] if (col * 3 + r * 5) % 4 else 0
+            x0, y0 = gx + col * step, gy + r * step
+            cells.append(f'<rect x="{x0}" y="{y0}" width="{size}" height="{size}" rx="3.5" fill="{c["cell"]}" stroke="{c["border"]}" stroke-opacity="0.6"/>')
+            if lv:
+                cells.append(f'<rect x="{x0}" y="{y0}" width="{size}" height="{size}" rx="3.5" fill="{c["accent"]}" opacity="{lv * 0.85:.2f}"/>')
+            cells.append(f'<rect x="{x0}" y="{y0}" width="{size}" height="{size}" rx="3.5" fill="{c["accent"]}" opacity="0">'
+                         f'<animate attributeName="opacity" values="0;0.9;0;0" keyTimes="0;0.08;0.25;1" dur="5s" '
+                         f'begin="{1 + (col + r) * 0.11:.2f}s" repeatCount="indefinite"/></rect>')
+    b.append(g_in(0.3, "".join(cells), 0))
+    return svg(W, H, "".join(b), f"{NAME} — {ROLE}. Currently {TYPED}.")
+
+
+def header(c, num, title, path):
+    H = 56
+    tw = len(title) * 20 * SANS_W
+    x_line = 44 + tw + 18
+    end = W - 18 - len(path) * 11 * MONO_W - 14
+    b = [g_in(0, text(2, 36, num, 12, c["accent"], MONO, 600), 4),
+         g_in(0.08, text(36, 37, title, 20, c["text"], weight=600, ls=-0.3), 4),
+         f'<line x1="{x_line:.1f}" y1="31" x2="{end:.1f}" y2="31" stroke="{c["border"]}" pathLength="100" '
+         f'stroke-dasharray="100" stroke-dashoffset="100"><animate attributeName="stroke-dashoffset" from="100" '
+         f'to="0" begin="0.2s" dur="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></line>',
+         g_in(0.5, text(W - 4, 35, path, 11, c["subtle"], MONO, anchor="end"), 0)]
+    return svg(W, H, "".join(b), f"{num} {title}")
+
+
+def featured(c, theme):
+    H, f = 236, FEATURED
+    b = [frame(W, H, c, 14)]
+    left = [text(32, 48, "CURRENT BUILD", 11, c["accent"], MONO, 600, ls=1.5),
+            pulse(150, 44, c["green"], 3),
+            text(32, 92, f["title"], 30, c["text"], weight=700, ls=-0.8)]
+    for i, line in enumerate(wrap(f["desc"], 56)):
+        left.append(text(32, 124 + i * 22, line, 14.5, c["muted"]))
+    left.append(text(32, 194, f["tech"], 12, c["subtle"], MONO))
+    left.append(text(32, 216, f["url"].replace("https://", "") + "  ↗", 12, c["accent"], MONO))
+    b.append(g_in(0.1, "".join(left)))
+    # brief -> model -> report
+    cy = 104
+    d, m, r = 520, 660, 760
+    parts = [f'<rect x="{d}" y="{cy - 40}" width="60" height="80" rx="8" fill="{c["surface"]}" stroke="{c["border"]}"/>']
+    for i, w in enumerate([36, 28, 40, 22, 32]):
+        parts.append(f'<rect x="{d + 12}" y="{cy - 26 + i * 12}" width="{w}" height="4" rx="2" fill="{c["subtle"]}" opacity="0.5"/>')
+    parts.append(f'<circle cx="{m}" cy="{cy}" r="30" fill="{c["surface"]}" stroke="{c["border"]}"/>'
+                 f'<circle cx="{m}" cy="{cy}" r="30" stroke="{c["accent"]}" stroke-width="1.5" pathLength="100" '
+                 f'stroke-dasharray="20 80" transform="rotate(-90 {m} {cy})"><animate attributeName="stroke-dashoffset" '
+                 f'from="0" to="-100" dur="3s" repeatCount="indefinite"/></circle>'
+                 + text(m, cy + 5, "AI", 14, c["text"], MONO, 700, "middle"))
+    parts.append(f'<rect x="{r}" y="{cy - 40}" width="60" height="80" rx="8" fill="{c["surface"]}" stroke="{c["border"]}"/>')
+    for i, w in enumerate([34, 22, 40]):
+        yy = cy - 22 + i * 18
+        parts.append(f'<rect x="{r + 12}" y="{yy}" width="36" height="6" rx="3" fill="{c["border"]}"/>'
+                     f'<rect x="{r + 12}" y="{yy}" width="0" height="6" rx="3" fill="{c["accent"]}">'
+                     f'<animate attributeName="width" values="0;{w};{w};0" keyTimes="0;0.25;0.85;1" dur="5s" '
+                     f'begin="{1.2 + i * 0.25:.2f}s" repeatCount="indefinite"/></rect>')
+    for i, (x1, x2) in enumerate([(d + 64, m - 34), (m + 34, r - 4)]):
+        parts.append(f'<line x1="{x1}" y1="{cy}" x2="{x2}" y2="{cy}" stroke="{c["border"]}" stroke-dasharray="3 4"/>'
+                     f'<circle r="3" fill="{c["accent"]}"><animateMotion path="M{x1} {cy}H{x2}" dur="1.6s" '
+                     f'begin="{0.8 + i * 0.8:.1f}s" repeatCount="indefinite"/></circle>')
+    for x, lbl in [(d + 30, "brief"), (m, "model"), (r + 30, "report")]:
+        parts.append(text(x, cy + 66, lbl, 11, c["subtle"], MONO, anchor="middle"))
+    b.append(g_in(0.3, "".join(parts), 0))
+    return svg(W, H, "".join(b), f'{f["title"]}: {f["desc"]}')
+
+
+def project(c, p, i):
+    w, H = 410, 176
+    b = [frame(w, H, c)]
+    inner = [text(24, 36, f"{i + 1:02d}", 11, c["subtle"], MONO, 600)]
+    if p["live"]:
+        inner.append(pulse(w - 62, 32, c["green"], 3) + text(w - 52, 36, "live", 11, c["green"], MONO))
+    else:
+        inner.append(text(w - 24, 37, "↗", 15, c["subtle"], anchor="end"))
+    inner.append(text(24, 66, p["title"], 17, c["text"], weight=600, ls=-0.2))
     for j, line in enumerate(wrap(p["desc"], 54)[:3]):
-        b.append(f'<text x="24" y="{92 + j * 19}" font-family="{SANS}" font-size="12.5" fill="{MUTED}">{e(line)}</text>')
-    b.append(pill_row(24, H - 40, p["tech"], a, W - 48, size=10))
-    return svg(W, H, "".join(b), f'{p["title"]} — {p["desc"]}')
+        inner.append(text(24, 92 + j * 19, line, 13, c["muted"]))
+    inner.append(text(24, H - 20, p["tech"], 11, c["subtle"], MONO))
+    b.append(g_in(0.1 + i * 0.08, "".join(inner), 6))
+    return svg(w, H, "".join(b), f'{p["title"]}: {p["desc"]}')
 
 
-def stack():
-    W, H, size, gap = 840, 142, 12, 10
-
-    def row(items, y, reverse, dur_per_px=0.035):
-        parts, x = [], 0
-        for name, col in items:
-            w = len(name) * size * MONO_W + 34
-            parts.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="32" rx="16" fill="{PANEL}" stroke="{col}" stroke-opacity="0.35"/>'
-                         f'<circle cx="{x + 15:.1f}" cy="{y + 16}" r="4" fill="{col}"/>'
-                         f'<text x="{x + 25:.1f}" y="{y + 20.5}" font-family="{MONO}" font-size="{size}" fill="{SOFT}">{e(name)}</text>')
-            x += w + gap
-        seq = "".join(parts)
-        frm, to = (f"-{x:.1f} 0", "0 0") if reverse else ("0 0", f"-{x:.1f} 0")
-        return (f'<g><animateTransform attributeName="transform" type="translate" from="{frm}" to="{to}" '
-                f'dur="{x * dur_per_px:.1f}s" repeatCount="indefinite"/>'
-                f'{seq}<g transform="translate({x:.1f} 0)">{seq}</g><g transform="translate({2 * x:.1f} 0)">{seq}</g></g>')
-
-    b = [f'''<defs><linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.08" stop-color="#fff"/><stop offset="0.92" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<mask id="m"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask></defs>
-{card_bg(W, H)}<g mask="url(#m)">{row(STACK_ROWS[0], 20, False)}{row(STACK_ROWS[1], 64, True)}</g>''']
-    widths = [len(t) * 10 * MONO_W + 30 for _, t in STACK_LEGEND]
-    x = (W - sum(widths)) / 2
-    for (col, t), w in zip(STACK_LEGEND, widths):
-        b.append(f'<circle cx="{x + 6:.1f}" cy="{H - 24}" r="4" fill="{col}"/>'
-                 f'<text x="{x + 16:.1f}" y="{H - 20.5}" font-family="{MONO}" font-size="10" fill="{MUTED}">{e(t)}</text>')
-        x += w
-    return svg(W, H, "".join(b), "Tech stack")
+def stack(c):
+    step = 38
+    H = 30 + step * len(STACK)
+    b = [frame(W, H, c)]
+    for i, (label, items) in enumerate(STACK):
+        y = 44 + i * step
+        last = i == len(STACK) - 1
+        row = (text(28, y, label.lower(), 12, c["accent"] if last else c["subtle"], MONO)
+               + text(170, y, items, 14, c["text"] if not last else c["muted"]))
+        if i:
+            row = f'<line x1="28" y1="{y - 24}" x2="{W - 28}" y2="{y - 24}" stroke="{c["border"]}" stroke-opacity="0.6"/>' + row
+        b.append(g_in(0.08 * i, row, 4))
+    return svg(W, H, "".join(b), "Stack: " + "; ".join(f"{a}: {s}" for a, s in STACK))
 
 
-def journey():
-    W, H = 840, 190
-    n = len(JOURNEY)
-    xs = [110 + i * (W - 220) / (n - 1) for i in range(n)]
-    ly = 82
-    b = [f'''<defs><linearGradient id="line" gradientUnits="userSpaceOnUse" x1="{xs[0]}" y1="0" x2="{xs[-1]}" y2="0">
-<stop offset="0" stop-color="{PINK}"/><stop offset="0.4" stop-color="{AMBER}"/><stop offset="0.7" stop-color="{CYAN}"/><stop offset="1" stop-color="{GREEN}"/></linearGradient></defs>
-{card_bg(W, H)}
-<line x1="{xs[0]}" y1="{ly}" x2="{xs[-1]}" y2="{ly}" stroke="{BORDER}" stroke-width="2"/>
-<line x1="{xs[0]}" y1="{ly}" x2="{xs[-1]}" y2="{ly}" stroke="url(#line)" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
-<animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" begin="0.2s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></line>''']
-    for i, ((era, title, sub, col, current), x) in enumerate(zip(JOURNEY, xs)):
-        t = 0.2 + 2 * i / (n - 1)
-        ring = (f'<circle cx="{x:.1f}" cy="{ly}" r="9" fill="none" stroke="{col}">'
-                f'<animate attributeName="r" values="9;20;9" dur="2s" repeatCount="indefinite"/>'
-                f'<animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/></circle>') if current else ""
-        b.append(f'<g opacity="0">{fade_in(t, 8, 0.6)}'
-                 f'<text x="{x:.1f}" y="{ly - 26}" text-anchor="middle" font-family="{MONO}" font-size="10" letter-spacing="1.2" fill="{col}">{e(era)}</text>'
-                 f'{ring}<circle cx="{x:.1f}" cy="{ly}" r="9" fill="{BG}" stroke="{col}" stroke-width="2.5"/>'
-                 f'<circle cx="{x:.1f}" cy="{ly}" r="4" fill="{col}"/>'
-                 f'<text x="{x:.1f}" y="{ly + 42}" text-anchor="middle" font-family="{SANS}" font-size="16" font-weight="700" fill="{TEXT}">{e(title)}</text>'
-                 f'<text x="{x:.1f}" y="{ly + 63}" text-anchor="middle" font-family="{MONO}" font-size="11" fill="{MUTED}">{e(sub)}</text></g>')
-    return svg(W, H, "".join(b), "Journey: " + ", ".join(f"{t} ({s})" for _, t, s, _, _ in JOURNEY))
+def experience(c):
+    step, top = 64, 44
+    H = top + step * (len(EXPERIENCE) - 1) + 52
+    lx = 168
+    b = [frame(W, H, c),
+         f'<line x1="{lx}" y1="{top - 4}" x2="{lx}" y2="{top + step * (len(EXPERIENCE) - 1)}" stroke="{c["border"]}" '
+         f'stroke-width="1.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">'
+         f'<animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.2s" begin="0.1s" fill="freeze"/></line>']
+    for i, (when, role, where, cur) in enumerate(EXPERIENCE):
+        y = top + i * step
+        dot = (pulse(lx, y, c["accent"], 5) if cur else
+               f'<circle cx="{lx}" cy="{y}" r="5" fill="{c["bg"]}" stroke="{c["subtle"]}" stroke-width="1.5"/>')
+        row = (text(lx - 24, y + 4, when, 12, c["accent"] if cur else c["subtle"], MONO, anchor="end")
+               + dot + text(lx + 26, y + 5, role, 15, c["text"], weight=600)
+               + text(lx + 26, y + 26, where, 13, c["muted"]))
+        b.append(g_in(0.2 + i * 0.25, row, 4))
+    return svg(W, H, "".join(b), "Experience: " + "; ".join(f"{r}, {w} ({t})" for t, r, w, _ in EXPERIENCE))
 
 
+def contact(c):
+    H = 128
+    b = [frame(W, H, c),
+         g_in(0.1, text(32, 58, CONTACT_TITLE, 24, c["text"], weight=700, ls=-0.6)
+              + text(32, 88, CONTACT_TEXT, 14.5, c["muted"])),
+         f'<circle cx="{W - 60}" cy="64" r="22" stroke="{c["border"]}"/>'
+         f'<circle cx="{W - 60}" cy="64" r="22" stroke="{c["accent"]}" stroke-width="1.5" pathLength="100" '
+         f'stroke-dasharray="25 75"><animate attributeName="stroke-dashoffset" from="0" to="-100" dur="4s" repeatCount="indefinite"/></circle>'
+         + text(W - 60, 70, "→", 17, c["accent"], anchor="middle")]
+    return svg(W, H, "".join(b), f"{CONTACT_TITLE} {CONTACT_TEXT}")
+
+
+def footer(c):
+    H = 48
+    return svg(W, H, g_in(0.2, text(W / 2, 28, MOTTO, 12, c["subtle"], MONO, anchor="middle"), 0), MOTTO)
+
+
+def button(label, primary):
+    """Theme-neutral button: mid-tone fill with white text reads on light and dark."""
+    w, h = len(label) * 14 * SANS_W + 58, 40
+    fill = "#0969da" if primary else "#57606a"
+    return svg(int(w), h,
+               f'<rect width="{w:.1f}" height="{h}" rx="20" fill="{fill}"/>'
+               + text(22, 25.5, label, 14, "#ffffff", weight=600)
+               + text(w - 22, 25.5, "↗", 14, "#ffffff", anchor="end"), label)
+
+
+# ================================================================ README
+SECTIONS = [("01", "Now", "/now"), ("02", "Selected work", "/work"),
+            ("03", "Stack", "/stack"), ("04", "Experience", "/experience"),
+            ("05", "Activity", "/activity"), ("06", "Contact", "/contact")]
+
+
+def themed(name, alt, href=PROFILE, width="100%"):
+    return (f'<a href="{href}#gh-dark-mode-only"><img src="assets/dark/{name}.svg" width="{width}" alt="{e(alt)}" /></a>'
+            f'<a href="{href}#gh-light-mode-only"><img src="assets/light/{name}.svg" width="{width}" alt="{e(alt)}" /></a>')
+
+
+def themed_remote(dark, light, alt, href=PROFILE, attrs='width="100%"'):
+    return (f'<a href="{href}#gh-dark-mode-only"><img src="{dark}" {attrs} alt="{e(alt)}" /></a>'
+            f'<a href="{href}#gh-light-mode-only"><img src="{light}" {attrs} alt="{e(alt)}" /></a>')
+
+
+def readme():
+    cards = "https://github-profile-summary-cards.vercel.app/api/cards"
+    snake = f"https://raw.githubusercontent.com/{USER}/{USER}/output"
+    hdr = {num: themed(f"header-{num}", f"{num} {t}") for num, t, _ in SECTIONS}
+    rows = []
+    for a, b in zip(PROJECTS[::2], PROJECTS[1::2]):
+        rows.append('<p align="center">\n  '
+                    + themed(f"project-{a['slug']}", a["title"], a["url"], "49%") + "\n  "
+                    + themed(f"project-{b['slug']}", b["title"], b["url"], "49%") + "\n</p>")
+    live = next(p for p in PROJECTS if p["live"])
+    stats = "\n".join([
+        themed_remote(f"{cards}/profile-details?username={USER}&theme=github_dark",
+                      f"{cards}/profile-details?username={USER}&theme=github", "GitHub profile summary"),
+        themed_remote(f"{cards}/repos-per-language?username={USER}&theme=github_dark",
+                      f"{cards}/repos-per-language?username={USER}&theme=github", "Repositories per language", attrs='height="165"'),
+        themed_remote(f"{cards}/stats?username={USER}&theme=github_dark",
+                      f"{cards}/stats?username={USER}&theme=github", "GitHub statistics", attrs='height="165"'),
+        themed_remote(f"{snake}/github-contribution-grid-snake-dark.svg",
+                      f"{snake}/github-contribution-grid-snake.svg", "Contribution snake"),
+    ])
+    buttons = "\n  ".join(f'<a href="{h}"><img src="assets/button-{s}.svg" height="40" alt="{e(l)}" /></a>'
+                          for s, l, h, _ in BUTTONS)
+    return f"""<!-- Generated by scripts/build_assets.py. Edit the CONTENT section there, then re-run. -->
+<!-- Each image has a light and a dark version; GitHub shows the one matching your theme. -->
+
+{themed("hero", f"{NAME} — {ROLE}")}
+
+<br/>
+
+{hdr["01"]}
+
+{themed("featured", f"{FEATURED['title']}: {FEATURED['desc']}", FEATURED["url"])}
+
+<br/>
+
+{hdr["02"]}
+
+{chr(10).join(rows)}
+
+<p align="center"><sub>Try <a href="{live['url']}">{live['title']}</a> live.</sub></p>
+
+{hdr["03"]}
+
+{themed("stack", "Stack: " + "; ".join(f"{a}: {s}" for a, s in STACK))}
+
+<br/>
+
+{hdr["04"]}
+
+{themed("experience", "Experience")}
+
+<br/>
+
+{hdr["05"]}
+
+<div align="center">
+
+{stats}
+
+</div>
+
+<br/>
+
+{hdr["06"]}
+
+{themed("contact", f"{CONTACT_TITLE} {CONTACT_TEXT}")}
+
+<p align="center">
+  {buttons}
+</p>
+
+{themed("footer", MOTTO)}
+"""
+
+
+# ================================================================ main
 def main():
-    OUT.mkdir(exist_ok=True)
-    files = {"hero.svg": hero(), "status.svg": status(), "featured.svg": featured(),
-             "stack.svg": stack(), "journey.svg": journey()}
-    for i, p in enumerate(PROJECTS):
-        files[f"project-{p['slug']}.svg"] = project_card(p, i)
-    for name, content in files.items():
-        (OUT / name).write_text(content, encoding="utf-8", newline="\n")
-        print("wrote", OUT / name)
+    for theme, c in THEMES.items():
+        out = ASSETS / theme
+        out.mkdir(parents=True, exist_ok=True)
+        files = {"hero": hero(c, theme), "featured": featured(c, theme), "stack": stack(c),
+                 "experience": experience(c), "contact": contact(c), "footer": footer(c)}
+        for num, title, path in SECTIONS:
+            files[f"header-{num}"] = header(c, num, title, path)
+        for i, p in enumerate(PROJECTS):
+            files[f"project-{p['slug']}"] = project(c, p, i)
+        for name, content in files.items():
+            (out / f"{name}.svg").write_text(content, encoding="utf-8", newline="\n")
+    for slug, label, _, primary in BUTTONS:
+        (ASSETS / f"button-{slug}.svg").write_text(button(label, primary), encoding="utf-8", newline="\n")
+    (ROOT / "README.md").write_text(readme(), encoding="utf-8", newline="\n")
+    print("built", sum(1 for _ in ASSETS.rglob("*.svg")), "svgs + README.md")
 
 
 if __name__ == "__main__":
